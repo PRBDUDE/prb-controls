@@ -1,0 +1,14 @@
+.footer {
+  &-bar {
+    display: flex;
+    align-items: center;
+    height: var(--footer-height);
+    background-color: var(--color-footer-background);
+  }
+
+  &-text {
+    font-size: 12pt;
+    color: var(--color-footer-text);
+    margin: 0 auto;
+  }
+}
