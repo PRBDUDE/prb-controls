@@ -12,7 +12,26 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",
-    "module": "preserve"
+    "module": "preserve",
+    "paths": {
+      "@core/*": [
+        "./src/app/core/content/*",
+        "./src/app/core/footer/*",
+        "./src/app/core/header/*",
+        "./src/app/core/jelly-container/*",
+        "./src/app/core/layout/*",
+        "./src/app/core/path-not-found/*",
+        "./src/app/core/section/*",
+        "./src/app/core/services/*",
+        "./src/app/core/theme-toggle/*",
+        "./src/app/core/*"
+      ],
+      "@control/*": [
+        "./src/app/control/pain-scale-selector/*",
+        "./src/app/control/star-rating/*",
+        "./src/app/control/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
