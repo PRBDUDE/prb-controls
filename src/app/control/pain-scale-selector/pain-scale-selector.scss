@@ -1,0 +1,116 @@
+.pain-scale-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 900px;
+  font-family: system-ui,
+  -apple-system,
+  sans-serif;
+}
+
+.scale-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #334155;
+}
+
+.levels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+  gap: 8px;
+}
+
+.level-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 4px;
+  border: 2px solid hsl(var(--hue), 65%, 82%);
+  background-color: hsl(var(--hue), 85%, 97%);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.level-card:hover {
+  background-color: hsl(var(--hue), 80%, 92%);
+  transform: translateY(-2px);
+  border-color: hsl(var(--hue), 60%, 65%);
+}
+
+.level-card.selected {
+  background-color: hsl(var(--hue), 75%, 45%);
+  border-color: hsl(var(--hue), 80%, 35%);
+  box-shadow: 0 4px 10px -1px hsl(var(--hue), 50%, 65%);
+  transform: translateY(-3px);
+}
+
+.icon-container {
+  width: 36px;
+  height: 36px;
+}
+
+.face-icon {
+  width: 100%;
+  height: 100%;
+}
+
+.face-bg {
+  fill: none;
+  stroke: hsl(var(--hue), 70%, 35%);
+  stroke-width: 2;
+  transition: fill 0.2s ease,
+  stroke 0.2s ease;
+}
+
+.eye {
+  fill: hsl(var(--hue), 70%, 25%);
+  transition: fill 0.2s ease;
+}
+
+.mouth {
+  fill: none;
+  stroke: hsl(var(--hue), 70%, 25%);
+  stroke-width: 2;
+  stroke-linecap: round;
+  transition: stroke 0.2s ease;
+}
+
+.tear {
+  fill: #38bdf8;
+}
+
+.level-num {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: hsl(var(--hue), 80%, 25%);
+}
+
+.level-desc {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.1;
+  color: hsl(var(--hue), 80%, 25%);
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+/* Selected state contrasts */
+.level-card.selected .face-bg {
+  fill: rgba(255, 255, 255, 0.25);
+  stroke: #ffffff;
+}
+
+.level-card.selected .eye,
+.level-card.selected .mouth {
+  fill: #ffffff;
+  stroke: #ffffff;
+}
+
+.level-card.selected .level-num,
+.level-card.selected .level-desc {
+  color: #ffffff;
+}

@@ -1,0 +1,34 @@
+<div class="pain-scale-container">
+  <label class="scale-title">Select Pain Level</label>
+
+  <div class="levels-grid">
+    @for (level of painLevels; track level.value) {
+      <button
+        type="button"
+        class="level-card"
+        [class.selected]="selectedPainLevel() === level.value"
+        [style.--hue]="getHue(level.value)"
+        (click)="selectLevel(level.value)"
+        [attr.aria-label]="'Pain level ' + level.value + ': ' + level.label"
+      >
+        <div class="icon-container">
+          <svg viewBox="0 0 24 24" class="face-icon" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" class="face-bg" />
+            <circle cx="8.5" cy="9.5" r="1.5" class="eye" />
+            <circle cx="15.5" cy="9.5" r="1.5" class="eye" />
+            <path [attr.d]="level.svgPath" class="mouth" />
+            @if (level.value >= 9) {
+              <!-- Teardrop for severe pain levels -->
+              <path
+                d="M16.5 11.5 C16.5 11.5 15.5 13 15.5 14 C15.5 14.5 15.9 15 16.5 15 C17.1 15 17.5 14.5 17.5 14 C17.5 13 16.5 11.5 16.5 11.5 Z"
+                class="tear"
+              />
+            }
+          </svg>
+        </div>
+        <span class="level-num">{{ level.value }}</span>
+        <span class="level-desc">{{ level.label }}</span>
+      </button>
+    }
+  </div>
+</div>
