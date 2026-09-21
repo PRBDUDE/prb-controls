@@ -1,0 +1,33 @@
+.star-rating-container {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.star-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  color: var(--color-star-border); /* Unfilled star color */
+  transition: color 0.15s ease, transform 0.1s ease;
+  outline: none;
+}
+
+.star-btn:hover {
+  transform: scale(1.15);
+}
+
+.star-btn.active {
+  color: #ffc107; /* Filled gold star color */
+}
+
+.star-icon {
+  width: 28px;
+  height: 28px;
+  fill: transparent;
+}
+
+.star-btn.active .star-icon {
+  fill: currentColor;
+}

@@ -1,0 +1,13 @@
+<jelly-container>
+  <h1>
+    Star Rating Control
+  </h1>
+  <prb-star-rating [(rating)]=selectedRating />
+  <p>
+    Selected Rating: {{ selectedRating }}
+  </p>
+  <prb-star-rating [(rating)]=selectedRating2 [maxStars]="10" />
+  <p>
+    Selected Rating: {{ selectedRating2 }}
+  </p>
+</jelly-container>
