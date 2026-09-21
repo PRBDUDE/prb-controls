@@ -74,12 +74,12 @@
   --color-star-border: hsl(var(--base-hue) 60% 10%);
 
   &[class*="prb-dark-theme"] {
-    --color-header-background: hsl(var(--base-hue) 40% 20%);
+    --color-header-background: hsl(var(--base-hue) 80% 15%);
     --color-header-text: hsl(var(--base-hue) 10% 100%);
     --color-footer-background: hsl(var(--base-hue) 5% 2%);
     --color-footer-text: hsl(var(--base-hue) 10% 100%);
 
-    --color-content-background: hsl(var(--base-hue) 80% 15%);
+    --color-content-background: hsl(var(--base-hue) 40% 30%);
     --color-content-text: hsl(var(--base-hue) 60% 100%);
 
     --color-menu-background: hsl(var(--base-hue) 20% 2%);
