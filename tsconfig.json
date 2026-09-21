@@ -16,6 +16,14 @@
     "paths": {
       "@core/*": [
         "./src/app/core/content/*",
+        "./src/app/core/card/card-body/*",
+        "./src/app/core/card/card-container/*",
+        "./src/app/core/card/card-header/*",
+        "./src/app/core/code-coloring/class-name/*",
+        "./src/app/core/code-coloring/html-attribute/*",
+        "./src/app/core/code-coloring/html-tag/*",
+        "./src/app/core/code-coloring/number-value/*",
+        "./src/app/core/code-coloring/user-tag/*",
         "./src/app/core/footer/*",
         "./src/app/core/header/*",
         "./src/app/core/jelly-container/*",
