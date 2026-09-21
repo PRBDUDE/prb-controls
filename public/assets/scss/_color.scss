@@ -73,6 +73,8 @@
 
   --color-star-border: hsl(var(--base-hue) 60% 10%);
 
+  --color-pain-scale-title: hsl(var(--base-hue) 90% 30%);
+
   &[class*="prb-dark-theme"] {
     --color-header-background: hsl(var(--base-hue) 80% 15%);
     --color-header-text: hsl(var(--base-hue) 10% 100%);
@@ -122,6 +124,8 @@
     --color-content-section-text: hsl(var(--base-hue) 60% 80%);
 
     --color-star-border: hsl(var(--base-hue) 30% 80%);
+
+    --color-pain-scale-title: hsl(var(--base-hue) 90% 60%);
   }
 }
 
