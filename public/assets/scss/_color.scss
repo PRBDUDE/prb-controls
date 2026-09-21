@@ -23,6 +23,13 @@
   --color-side-menu-text: hsl(var(--base-hue) 80% 1%);
   --color-side-menu-background-hover: hsl(var(--base-hue) 80% 60%);
 
+  --color-page-menu-background: hsla(var(--base-hue), 70%, 50%, 20%);
+  --color-page-menu-text: hsl(var(--base-hue), 40%, 10%);
+  --color-page-menu-hover-background: hsl(var(--base-hue), 80%, 80%);
+  --color-page-menu-hover-text: hsl(var(--base-hue), 40%, 10%);
+  --color-page-menu-active-link-border: hsl(var(--base-hue), 30%, 40%);
+  --color-page-menu-border: hsl(var(--base-hue), 100%, 60%);
+
   --color-question-background: hsl(var(--base-hue) 20% 70%);
   --color-question-text: hsl(var(--base-hue) 30% 10%);
 
@@ -78,6 +85,13 @@
     --color-menu-background: hsl(var(--base-hue) 20% 2%);
     --color-menu-text: hsl(var(--base-hue) 80% 100%);
     --color-menu-background-hover: hsl(var(--base-hue) 30% 30%);
+
+    --color-page-menu-background: hsla(var(--base-hue), 70%, 50%, 30%);
+    --color-page-menu-text: hsl(var(--base-hue), 40%, 10%);
+    --color-page-menu-hover-background: hsl(var(--base-hue), 80%, 80%);
+    --color-page-menu-hover-text: hsl(var(--base-hue), 40%, 10%);
+    --color-page-menu-active-link-border: hsl(var(--base-hue), 30%, 40%);
+    --color-page-menu-border: hsl(var(--base-hue), 90%, 70%);
 
     --color-side-menu-background: hsl(var(--base-hue) 20% 2%);
     --color-side-menu-text: hsl(var(--base-hue) 80% 100%);
