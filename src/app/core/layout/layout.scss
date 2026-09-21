@@ -1,0 +1,8 @@
+:host {
+  display: grid;
+  grid-template-areas:
+    "header-panel header-panel"
+    "menu-panel content-panel"
+    "footer-panel footer-panel";
+  grid-template-columns: var(--menu-width) auto;
+}
