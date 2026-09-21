@@ -1,4 +1,8 @@
 <div class="page-content">
+  <prb-section [sectionName]="'aiGenerated'" [description]="'AI Generated'">
+    <prb-ai-generated-demo />
+  </prb-section>
+
   <prb-section [sectionName]="'starRating'" [description]="'Star Rating'">
     <prb-star-rating-demo />
   </prb-section>
@@ -9,6 +13,11 @@
 </div>
 <div class="page-menu">
   <nav>
+    <li>
+      <a href="/home#aiGenerated" aria-label="AI Generated">
+        AI Generated
+      </a>
+    </li>
     <li>
       <a href="/home#starRating" aria-label="Star Rating">
         Star Rating
