@@ -1,4 +1,20 @@
 <jelly-container>
+  <card-container>
+    <card-header>HTML</card-header>
+    <card-body>
+      <html-tag>&lt;</html-tag><user-tag>prb-pain-scale-selector</user-tag>
+      <html-attribute>[(selectedPainLevel)]</html-attribute><html-tag>=</html-tag><html-attribute>selectedPainLevel
+    </html-attribute>
+      <html-tag>/&gt;</html-tag>
+      <p>
+        <html-attribute>selectedPainLevel</html-attribute>: is a two way input/out property showing the rating in a numeric value.
+      </p>
+      <p>
+        <html-attribute>disabled</html-attribute>: is a boolean
+      </p>
+    </card-body>
+  </card-container>
+
   <prb-pain-scale-selector [(selectedPainLevel)]=selectedPainLevel )] />
   <p>
     Selected Pain Level: {{ selectedPainLevel }}
