@@ -2,9 +2,27 @@
   <h1>
     Star Rating Control
   </h1>
+  <p>
+    <b>rating:</b> is a two way input/out property showing the rating in a numeric value.
+  </p>
+  <p>
+    <b>maxStars:</b> is a numeric input telling the control how many stars to display.
+    Default value is 5.
+  </p>
+  <p>
+    <b>disabled:</b> is a boolean
+  </p>
+  <hr/>
+  <p>
+    maxStars is not set
+  </p>
   <prb-star-rating [(rating)]=selectedRating />
   <p>
     Selected Rating: {{ selectedRating }}
+  </p>
+  <hr/>
+  <p>
+    maxStars is set to 10
   </p>
   <prb-star-rating [(rating)]=selectedRating2 [maxStars]="10" />
   <p>
