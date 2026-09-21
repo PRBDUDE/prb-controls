@@ -27,11 +27,22 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "public",
+                "output": "/"
+              },
+              {
+                "glob": "**.png",
+                "input": "public/assets/images",
+                "output": "assets/images"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ]
+            "stylePreprocessorOptions": {
+              "includePaths": ["public/assets/scss", "."]
+            },
+            "styles": ["src/styles.scss"]
           },
           "configurations": {
             "production": {
