@@ -1,0 +1,68 @@
+@use "mixins";
+
+body {
+  font-family: "Comic Sans MS", sans-serif;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 0.05em;
+
+  .layout {
+    display: grid;
+    grid-template-areas:
+      "header-panel"
+      "content-panel"
+      "footer-panel";
+
+    prb-header {
+      grid-area: header-panel;
+    }
+
+    prb-menu {
+      grid-area: menu-panel;
+    }
+
+    .router-content {
+      font-family: Arial, Helvetica, sans-serif;
+      grid-area: content-panel;
+      height: var(--content-height);
+      background-color: var(--color-content-background);
+      color: var(--color-content-text);
+      scrollbar-gutter: stable;
+    }
+
+    .prb-left-menu {
+      grid-area: left-menu-panel;
+    }
+
+    .page-content-container {
+      grid-area: content-panel;
+
+      .page-content {
+        @include mixins.mix-page-content;
+      }
+    }
+
+    .prb-right-menu {
+      grid-area: right-menu-panel;
+    }
+
+    .page-content-container,
+    .prb-left-menu,
+    .prb-right-menu {
+      height: var(--content-height);
+    }
+
+    .prb-left-menu,
+    .prb-right-menu {
+      background-color: var(--color-menu-background);
+    }
+
+    prb-footer {
+      grid-area: footer-panel;
+    }
+  }
+}
+
+.page-content {
+  scroll-behavior: smooth;
+}
