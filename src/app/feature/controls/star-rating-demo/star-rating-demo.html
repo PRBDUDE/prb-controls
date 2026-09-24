@@ -2,22 +2,42 @@
   <h1>
     Star Rating Control
   </h1>
+  Here are the prompts (in the order that I used them) used to generate the Star Rating control:
+  <ul>
+    <li>
+      create a 5 star rating control in angular 22 - when the 4th star is clicked on, stars 1 through 4 should
+      highlight and the control should return a value of 4 - when the 1st star is clicked on only the first star
+      should highlight and a value of 1 should be returned
+    </li>
+    <li>
+      setting maxStars to 10 does nothing
+    </li>
+    <li>
+      set fill to transparent until selected
+    </li>
+  </ul>
   <card-container>
-    <card-header>HTML</card-header>
+    <card-header>HTML - Control usage</card-header>
     <card-body>
-      <html-tag>&lt;</html-tag><user-tag>prb-star-rating</user-tag>
-      <html-attribute>[(rating)]</html-attribute><html-tag>=</html-tag><html-attribute>selectedRating
+      <html-tag>&lt;</html-tag>
+      <user-tag>prb-star-rating</user-tag>
+      <html-attribute>[(rating)]</html-attribute>
+      <html-tag>=</html-tag>
+      <html-attribute>selectedRating
       </html-attribute>
       <html-tag>/&gt;</html-tag>
       <p>
-        <html-attribute>rating</html-attribute>: is a two way input/out property showing the rating in a numeric value.
+        <html-attribute>rating</html-attribute>
+        : is a two way input/out property showing the rating in a numeric value.
       </p>
       <p>
-        <html-attribute>maxStars</html-attribute>: is a numeric input telling the control how many stars to display.
+        <html-attribute>maxStars</html-attribute>
+        : is a numeric input telling the control how many stars to display.
         Default value is 5.
       </p>
       <p>
-        <html-attribute>disabled</html-attribute>: is a boolean
+        <html-attribute>disabled</html-attribute>
+        : is a boolean
       </p>
     </card-body>
   </card-container>
@@ -28,23 +48,32 @@
   <p>
     Selected Rating: {{ selectedRating }}
   </p>
-  <hr/>
+  <hr />
   <card-container>
-    <card-header>HTML</card-header>
+    <card-header>HTML - Control usage</card-header>
     <card-body>
-      <html-tag>&lt;</html-tag><user-tag>prb-star-rating</user-tag>
-      <html-attribute>[(rating)]</html-attribute><html-tag>=</html-tag><html-attribute>selectedRating2
-      [maxStars]</html-attribute><html-tag>=</html-tag><html-attribute>"10"</html-attribute>
+      <html-tag>&lt;</html-tag>
+      <user-tag>prb-star-rating</user-tag>
+      <html-attribute>[(rating)]</html-attribute>
+      <html-tag>=</html-tag>
+      <html-attribute>selectedRating2
+        [maxStars]
+      </html-attribute>
+      <html-tag>=</html-tag>
+      <html-attribute>"10"</html-attribute>
       <html-tag>/&gt;</html-tag>
       <p>
-        <html-attribute>rating</html-attribute>: is a two way input/out property showing the rating in a numeric value.
+        <html-attribute>rating</html-attribute>
+        : is a two way input/out property showing the rating in a numeric value.
       </p>
       <p>
-        <html-attribute>maxStars</html-attribute>: is a numeric input telling the control how many stars to display.
+        <html-attribute>maxStars</html-attribute>
+        : is a numeric input telling the control how many stars to display.
         Default value is 5.
       </p>
       <p>
-        <html-attribute>disabled</html-attribute>: is a boolean
+        <html-attribute>disabled</html-attribute>
+        : is a boolean
       </p>
     </card-body>
   </card-container>
