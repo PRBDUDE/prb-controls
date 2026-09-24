@@ -1,6 +1,10 @@
 h1 {
   color: var(--color-h1);
   font-size: 18pt;
+
+  &.caution {
+    color: var(--color-caution);
+  }
 }
 
 h2 {
