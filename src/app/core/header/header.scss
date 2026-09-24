@@ -25,6 +25,7 @@
 
   &-text {
     font-size: 32pt;
+    padding-top: 0.3em;
   }
 
   &-theme-toggle {
@@ -53,7 +54,8 @@
 @media screen and (max-width: 1024px) {
   .header {
     &-text {
-      font-size: 28pt;
+      font-size: 26pt;
+      padding-top: 0.5em;
     }
   }
 }
