@@ -3,7 +3,6 @@
 @forward "header";
 @forward "layout";
 @forward "menu";
-@forward "page";
 @forward "section";
 @forward "mixins";
 
@@ -20,5 +19,5 @@
   --layout-scss-max-height: 400px;
   --layout-scss-font-size: 9pt;
 
-  --font-family-body: Arial, Helvetica, sans-serif;
+  --font-family-body: Arial, Helvetica;
 }
