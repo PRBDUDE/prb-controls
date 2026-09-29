@@ -1,3 +1,8 @@
+:host {
+  grid-area: header-panel;
+  font-family: "Comic Sans MS", sans-serif
+}
+
 .header {
   &-bar {
     background-color: var(--color-header-background);
