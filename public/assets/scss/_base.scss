@@ -1,7 +1,7 @@
+@forward "color-generator";
 @forward "color";
 @forward "list";
 @forward "header";
-@forward "layout";
 @forward "menu";
 @forward "section";
 @forward "mixins";
@@ -10,14 +10,25 @@
   --header-height: 100px;
   --footer-height: 32px;
   --content-height: calc(100vh - var(--header-height) - var(--footer-height));
-  --left-side-panel-menu-width: 12em;
-  --right-side-panel-menu-width: 11em;
-
-  // Layout demo related
-  --layout-demo-page-width: 500px;
-  --layout-scss-width: 300px;
-  --layout-scss-max-height: 400px;
-  --layout-scss-font-size: 9pt;
+  --left-side-panel-menu-width: 7em;
 
   --font-family-body: Arial, Helvetica;
+}
+
+body {
+  font-family: var(--font-family-body), sans-serif;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 0.05em;
+  overflow: hidden;
+}
+
+.page-content {
+  scroll-behavior: smooth;
+  padding: 1rem;
+}
+
+hr {
+  width: 80%;
+  margin-bottom: 20px;
 }
