@@ -15,9 +15,12 @@
   --color-content-background: hsl(var(--base-hue) 80% 90%);
   --color-content-text: hsl(var(--base-hue) 6% 1%);
 
-  --color-menu-background: hsl(var(--base-hue) 60% 60%);
+  --color-menu-background: hsl(var(--base-hue) 60% 50%);
+  --color-menu-button-background: hsl(var(--hue), 60%, 65%);
   --color-menu-text: hsl(var(--base-hue) 80% 1%);
   --color-menu-background-hover: hsl(var(--base-hue) 80% 60%);
+  --color-menu-hover-text: hsl(var(--hue), 40%, 10%);
+  --color-menu-active-link-border: hsl(var(--hue), 30%, 40%);
 
   --color-side-menu-background: hsl(var(--base-hue) 60% 60%);
   --color-side-menu-text: hsl(var(--base-hue) 80% 1%);
@@ -78,6 +81,11 @@
 
   --color-pain-scale-title: hsl(var(--base-hue) 90% 30%);
 
+  --color-table-border: var(--prb-color-teal-700);
+  --color-table-background: var(--prb-color-teal-500);
+
+  --color-shadow: var(--prb-color-gray-400);
+
   &[class*="prb-dark-theme"] {
     --color-header-background: hsl(var(--base-hue) 80% 15%);
     --color-header-text: hsl(var(--base-hue) 10% 100%);
@@ -87,7 +95,7 @@
     --color-content-background: hsl(var(--base-hue) 40% 30%);
     --color-content-text: hsl(var(--base-hue) 60% 100%);
 
-    --color-menu-background: hsl(var(--base-hue) 20% 2%);
+    --color-menu-background: hsl(var(--base-hue) 80% 15%);
     --color-menu-text: hsl(var(--base-hue) 80% 100%);
     --color-menu-background-hover: hsl(var(--base-hue) 30% 30%);
 
@@ -131,6 +139,11 @@
     --color-star-border: hsl(var(--base-hue) 30% 80%);
 
     --color-pain-scale-title: hsl(var(--base-hue) 90% 60%);
+
+    --color-table-border: var(--prb-color-teal-200);
+    --color-table-background: var(--prb-color-teal-800);
+
+    --color-shadow: var(--prb-color-gray-700);
   }
 }
 

@@ -1,0 +1,176 @@
+// ==========================================
+// Here is the prompt used to generate the base of this scss:
+//
+// using scss only -
+// hue value as input -
+// generate shades of a given color code -
+// output scss  -
+// output 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950 -
+// permit n number of hues to be input -
+// add color name
+// ==========================================
+
+// ==========================================
+// Define your hues and base color settings here.
+// Override default saturation and lightness as needed.
+// ==========================================
+$color-palette-inputs: (
+  "primary": (
+    "hue": 180
+  ),
+  "secondary": (
+    "hue": 210
+  ),
+  "tertiary": (
+    "hue": 15
+  ),
+  "red": (
+    "hue": 0
+  ),
+  "gray": (
+    "hue": 0,
+    "saturation": 0%,
+    "lightness": 50%
+  ),
+  "brown": (
+    "hue": 22,
+    "saturation": 47%,
+    "lightness": 45%
+  ),
+  "orange": (
+    "hue": 25,
+    "saturation": 95%,
+    "lightness": 53%
+  ),
+  "amber": (
+    "hue": 38,
+    "saturation": 92%,
+    "lightness": 50%
+  ),
+  "yellow": (
+    "hue": 45,
+    "saturation": 93%,
+    "lightness": 47%
+  ),
+  "gold": (
+    "hue": 48,
+    "saturation": 97%,
+    "lightness": 48%
+  ),
+  "lime": (
+    "hue": 84
+  ),
+  "green": (
+    "hue": 142
+  ),
+  "emerald": (
+    "hue": 160
+  ),
+  "teal": (
+    "hue": 173,
+    "saturation": 80%,
+    "lightness": 40%
+  ),
+  "cyan": (
+    "hue": 189,
+    "saturation": 95%,
+    "lightness": 43%
+  ),
+  "sky": (
+    "hue": 199,
+    "saturation": 89%,
+    "lightness": 48%
+  ),
+  "blue": (
+    "hue": 217,
+    "saturation": 91%,
+    "lighness": 60%
+  ),
+  "indigo": (
+    "hue": 238,
+    "saturation": 84%,
+    "lighness": 67%
+  ),
+  "violet": (
+    "hue": 258,
+    "saturation": 90%,
+    "lighness": 66%
+  ),
+  "purple": (
+    "hue": 271,
+    "saturation": 91%,
+    "lighness": 65%
+  ),
+  "fuchsia": (
+    "hue": 292,
+    "saturation": 84%,
+    "lighness": 61%
+  ),
+  "pink": (
+    "hue": 330,
+    "saturation": 81%,
+    "lightness": 60%
+  ),
+  "rose": (
+    "hue": 350
+  )
+);
+
+// Map of shade keys to lightness values (%)
+$shade-lightness-map: (
+  50: 95%,
+  100: 90%,
+  200: 80%,
+  300: 70%,
+  400: 60%,
+  500: 50%, // Base shade
+  600: 40%,
+  700: 30%,
+  800: 20%,
+  900: 10%
+);
+
+// ==========================================
+// Generates a map of all shades for N input hues
+// ==========================================
+@function generate-color-palettes($inputs) {
+  $generated-palettes: ();
+
+  @each $name, $config in $inputs {
+    $hue: map-get($config, "hue");
+    // If saturation does not exist, then use default value of 70%
+    $saturation: if(map-has-key($config, "saturation"), map-get($config, "saturation"), 70%);
+    // If lightness does not exist, then use default value of 50%
+    $base-lightness: if(map-has-key($config, "lightness"), map-get($config, "lightness"), 50%);
+
+    $shades-map: ();
+
+    @each $shade, $target-lightness in $shade-lightness-map {
+      // Scale lightness relative to custom base lightness if provided
+      $adjusted-lightness: if(
+        $base-lightness != 50%,
+        $target-lightness * ($base-lightness / 50%),
+        $target-lightness
+      );
+
+      $color: hsl($hue, $saturation, $adjusted-lightness);
+      $shades-map: map-merge($shades-map, ($shade: $color));
+    }
+
+    $generated-palettes: map-merge($generated-palettes, ($name: $shades-map));
+  }
+
+  @return $generated-palettes;
+}
+
+// Build the global palette map
+$palettes: generate-color-palettes($color-palette-inputs);
+
+// Output as CSS Custom Properties (:root variables)
+:root {
+  @each $color-name, $shades in $palettes {
+    @each $shade, $value in $shades {
+      --prb-color-#{$color-name}-#{$shade}: #{$value};
+    }
+  }
+}
