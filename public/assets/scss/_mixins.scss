@@ -11,27 +11,6 @@
   @include mix-page-base;
 }
 
-@mixin mix-left-side-menu {
-  display: grid;
-  grid-template-areas:
-    "left-menu-panel main-content-panel";
-  grid-template-columns: var(--left-side-panel-menu-width) auto;
-  @include mix-page-base;
-}
-
-@mixin mix-left-and-right-side-menu {
-  display: grid;
-  grid-template-areas:
-    "left-menu-panel main-content-panel right-menu-panel";
-  grid-template-columns: var(--left-side-panel-menu-width) auto  var(--right-side-panel-menu-width);
-  @include mix-page-base;
-
-  .page-content {
-    grid-area: main-content-panel;
-    padding: 1em;
-  }
-}
-
 @mixin mix-box-shadow {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
 }
