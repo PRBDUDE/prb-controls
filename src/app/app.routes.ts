@@ -3,13 +3,18 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/color',
     pathMatch: 'full',
   },
   {
-    path: 'home',
+    path: 'controls',
     loadComponent: () => import('./feature/controls/controls').then((m) => m.Controls),
-    title: 'Home',
+    title: 'Controls',
+  },
+  {
+    path: 'color',
+    loadComponent: () => import('./feature/color/color').then((m) => m.Color),
+    title: 'Color Palette',
   },
   {
     path: 'path-not-found',
