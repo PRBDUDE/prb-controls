@@ -28,6 +28,7 @@
         "./src/app/core/header/*",
         "./src/app/core/jelly-container/*",
         "./src/app/core/layout/*",
+        "./src/app/core/menu/*",
         "./src/app/core/path-not-found/*",
         "./src/app/core/section/*",
         "./src/app/core/services/*",
