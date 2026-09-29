@@ -1,0 +1,33 @@
+:host {
+  grid-area: menu-panel;
+  background-color: var(--color-menu-background);
+  color: var(--color-menu-text);
+  height: var(--content-height);
+}
+
+nav {
+  menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7em;
+    list-style-type: none;
+    margin-block-start: 10px;
+    margin-inline-end: 10px;
+    font-size: 10pt;
+    padding-inline-start: 10px;
+
+    a {
+      padding: 3px 10px;
+      text-decoration: none;
+      text-align: center;
+      background-color: var(--color-menu-button-background);
+      color: var(--color-menu-text);
+      border-radius: 18px;
+
+      &:hover {
+        background-color: var(--color-menu-hover-background);
+        color: var(--color-menu-hover-text);
+      }
+    }
+  }
+}
