@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ColorCard } from '../color-card/color-card';
+import { ColorCard } from '@control/color-card/color-card';
 import { JellyContainer } from '@core/jelly-container';
 
 @Component({
