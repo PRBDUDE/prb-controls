@@ -5,7 +5,7 @@ import { ColorCard } from '@control/color-card';
 @Component({
   imports: [JellyContainer, ColorCard],
   selector: 'prb-primary',
-  styleUrl: './primary.scss',
+  styleUrls: ['../color.scss', './primary.scss'],
   templateUrl: './primary.html',
 })
 export class Primary {}

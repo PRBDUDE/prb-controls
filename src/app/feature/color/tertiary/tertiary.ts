@@ -5,7 +5,7 @@ import { JellyContainer } from '@core/jelly-container';
 @Component({
   imports: [ColorCard, JellyContainer],
   selector: 'prb-tertiary',
-  styleUrl: './tertiary.scss',
+  styleUrls: ['../color.scss', './tertiary.scss'],
   templateUrl: './tertiary.html',
 })
 export class Tertiary {}
