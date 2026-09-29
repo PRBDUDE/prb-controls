@@ -36,6 +36,7 @@
         "./src/app/core/*"
       ],
       "@control/*": [
+        "./src/app/control/color-card/*",
         "./src/app/control/pain-scale-selector/*",
         "./src/app/control/star-rating/*",
         "./src/app/control/*"
