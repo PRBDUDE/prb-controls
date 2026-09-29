@@ -26,9 +26,10 @@
   --color-side-menu-text: hsl(var(--base-hue) 80% 1%);
   --color-side-menu-background-hover: hsl(var(--base-hue) 80% 60%);
 
-  --color-page-menu-background: hsla(var(--base-hue), 70%, 50%, 20%);
-  --color-page-menu-text: hsl(var(--base-hue), 50%, 100%);
-  --color-page-menu-hover-background: hsl(var(--base-hue), 80%, 80%);
+  --color-page-menu-background: hsla(var(--base-hue), 80%, 40%, 50%);
+  --color-page-menu-button-background: hsla(var(--base-hue), 80%, 40%, 40%);
+  --color-page-menu-text: hsl(var(--base-hue), 50%, 10%);
+  --color-page-menu-hover-background: hsl(var(--base-hue), 80%, 75%);
   --color-page-menu-hover-text: hsl(var(--base-hue), 40%, 10%);
   --color-page-menu-active-link-border: hsl(var(--base-hue), 30%, 40%);
   --color-page-menu-border: hsl(var(--base-hue), 100%, 60%);
