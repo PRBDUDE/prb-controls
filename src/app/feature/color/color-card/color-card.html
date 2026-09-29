@@ -1,0 +1,29 @@
+<div class="color-card">
+  <div>
+    Color Name: <span class="color-name">{{ toProperCase(name()) }}</span>
+  </div>
+  <div>
+    <table>
+      <thead>
+      <tr>
+        <th>Shade</th>
+        <th>CSS Variable</th>
+        <th>Preview</th>
+      </tr>
+      </thead>
+      <tbody>
+        @for (shade of shades; track shade) {
+          <tr>
+            <td>{{ shade }}</td>
+            <td><code>--prb-color-{{ name() }}-{{ shade }}</code></td>
+            <td>
+              <div
+                class="color-swatch"
+                [style.background-color]="getCssVarString(shade)"
+              ></div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>  </div>
+</div>
