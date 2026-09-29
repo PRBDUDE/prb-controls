@@ -4,5 +4,5 @@
     "header-panel header-panel"
     "menu-panel content-panel"
     "footer-panel footer-panel";
-  grid-template-columns: var(--menu-width) auto;
+  grid-template-columns: var(--left-side-panel-menu-width) auto;
 }
