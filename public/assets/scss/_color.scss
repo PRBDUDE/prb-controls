@@ -44,17 +44,17 @@
   --color-card-background: hsl(var(--base-hue) 10% 15%);
   --color-card-text: hsl(var(--base-hue) 60% 90%);
 
-  --color-class-name: #7bafe5;
-  --color-number-value: #7bafe5;
-  --color-html-tag: #d47c39;
-  --color-html-attribute: #eb93fd;
-  --color-user-tag: #00dbb6;
-  --color-string: #70d48c;
-  --color-comment: #91979c;
-  --color-key-word: #ca9efc;
-  --color-method-name: #fbd462;
-  --color-caution: #fbd462;
-  --color-property: #ffa35b;
+  --color-class-name: hsl(211, 67%, 69%);
+  --color-number-value: hsl(211, 67%, 69%);
+  --color-html-tag: hsl(26, 64%, 53%);
+  --color-html-attribute: hsl(290, 96%, 78%);
+  --color-user-tag: hsl(170, 100%, 43%);
+  --color-string: hsl(137, 54%, 64%);
+  --color-comment: hsl(207, 5%, 59%);
+  --color-key-word: hsl(268, 94%, 80%);
+  --color-method-name: hsl(45, 95%, 68%);
+  --color-caution: hsl(4, 100%, 50%);
+  --color-property: hsl(26, 100%, 68%);
 
   --color-note: hsl(var(--base-hue) 90% 30%);
 
@@ -115,6 +115,8 @@
     --color-card-margin: hsl(var(--base-hue) 60% 90%);
     --color-card-background: hsl(var(--base-hue) 10% 15%);
     --color-card-text: hsl(var(--base-hue) 60% 90%);
+
+    --color-caution: hsl(45, 95%, 68%);
 
     --color-note: hsl(var(--base-hue) 90% 70%);
 
