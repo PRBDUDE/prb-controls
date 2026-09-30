@@ -4,16 +4,17 @@
   scroll-margin-top: 1em;
 
   &-description {
-    font-size: 18pt;
+    font-size: 24pt;
     font-weight: bold;
+    background-color: transparent;
     color: var(--color-content-section-text);
     text-align: center;
     width: fit-content;
     margin: 0 auto 20px auto;
     padding: 0.2em 0.4em;
-    //border-bottom: 6px solid var(--prb-color-beach-600);
+    border: 1px solid var(--color-content-section-title-border);
     border-radius: 12px;
-    box-shadow: 5px 5px 10px var(--color-shadow);
+    box-shadow: 5px 5px 15px var(--color-shadow);
   }
 }
 
