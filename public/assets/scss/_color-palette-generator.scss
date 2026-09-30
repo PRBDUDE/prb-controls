@@ -206,9 +206,11 @@ $shade-lightness-map: (
       );
 
       $color: hsl($hue, $saturation, $adjusted-lightness);
+      // Add shade map to $shades-map
       $shades-map: map-merge($shades-map, ($shade: $color));
     }
 
+    // Add palette to $generated-palettes
     $generated-palettes: map-merge($generated-palettes, ($name: $shades-map));
   }
 
