@@ -10,6 +10,8 @@
 // add color name
 // ==========================================
 
+// Explanation of SCSS variables https://sass-lang.com/documentation/variables/
+
 // ==========================================
 // Define your hues and base color settings here.
 // Override default saturation and lightness as needed.
@@ -168,10 +170,24 @@ $shade-lightness-map: (
 
 // ==========================================
 // Generates a map of all shades for N input hues
+//
+// Explanation of SCSS @function values https://sass-lang.com/documentation/values/functions/
 // ==========================================
 @function generate-color-palettes($inputs) {
   $generated-palettes: ();
 
+  // Explanation of SCSS @each https://sass-lang.com/documentation/at-rules/control/each/#with-maps
+  //
+  // $name is the key
+  // $config is the value part which contains "hue", "saturation", and "lightness"
+  //  (Note that "saturation" and "lightness" are optional)
+  //
+  // "pink" is the key and the value is enclosed in ( )
+  //  "pink": (
+  //    "hue": 330,
+  //    "saturation": 81%,
+  //    "lightness": 60%
+  //  ),
   @each $name, $config in $inputs {
     $hue: map-get($config, "hue");
     // If saturation does not exist, then use default value of 70%
