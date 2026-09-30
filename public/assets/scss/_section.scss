@@ -4,10 +4,16 @@
   scroll-margin-top: 1em;
 
   &-description {
-    font-size: 14pt;
+    font-size: 18pt;
     font-weight: bold;
     color: var(--color-content-section-text);
     text-align: center;
+    width: fit-content;
+    margin: 0 auto 20px auto;
+    padding: 0.2em 0.4em;
+    //border-bottom: 6px solid var(--prb-color-beach-600);
+    border-radius: 12px;
+    box-shadow: 5px 5px 10px var(--color-shadow);
   }
 }
 
