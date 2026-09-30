@@ -27,6 +27,16 @@ $color-palette-inputs: (
   "red": (
     "hue": 0
   ),
+  "neutral": (
+    "hue": 0,
+    "saturation": 0%,
+    "lightness": 45%
+  ),
+  "silver": (
+    "hue": 0,
+    "saturation": 0%,
+    "lightness": 76.86%
+  ),
   "gray": (
     "hue": 0,
     "saturation": 0%,
@@ -35,6 +45,11 @@ $color-palette-inputs: (
   "brown": (
     "hue": 22,
     "saturation": 47%,
+    "lightness": 45%
+  ),
+  "stone": (
+    "hue": 25,
+    "saturation": 5%,
     "lightness": 45%
   ),
   "orange": (
@@ -71,6 +86,16 @@ $color-palette-inputs: (
     "saturation": 80%,
     "lightness": 40%
   ),
+  "ocean": (
+    "hue": 180,
+    "saturation": 2.04%,
+    "lightness": 51.96%
+  ),
+  "beach": (
+    "hue": 183,
+    "saturation": 10.31%,
+    "lightness": 61.96%
+  ),
   "cyan": (
     "hue": 189,
     "saturation": 95%,
@@ -81,6 +106,11 @@ $color-palette-inputs: (
     "saturation": 89%,
     "lightness": 48%
   ),
+  "slate": (
+    "hue": 215,
+    "saturation": 16%,
+    "lighness": 47%
+  ),
   "blue": (
     "hue": 217,
     "saturation": 91%,
@@ -90,6 +120,11 @@ $color-palette-inputs: (
     "hue": 238,
     "saturation": 84%,
     "lighness": 67%
+  ),
+  "zinc": (
+    "hue": 240,
+    "saturation": 4%,
+    "lighness": 46%
   ),
   "violet": (
     "hue": 258,
