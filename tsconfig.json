@@ -40,6 +40,9 @@
         "./src/app/control/pain-scale-selector/*",
         "./src/app/control/star-rating/*",
         "./src/app/control/*"
+      ],
+      "@mock/*": [
+        "./src/test/mocks/*"
       ]
     }
   },
