@@ -1,89 +1,109 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DOCUMENT } from '@angular/common';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { ThemeToggle } from './theme-toggle';
-import { provideHttpClient } from '@angular/common/http';
-import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 describe('ThemeToggle', () => {
   let component: ThemeToggle;
   let fixture: ComponentFixture<ThemeToggle>;
-  let mockDocument: Document;
+  let documentRef: Document;
+
+  const mockMatchMedia = (matches: boolean) => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: (query: string) => ({
+        matches,
+        media: query,
+        onchange: null,
+        addListener: () => {},
+        removeListener: () => {},
+        addEventListener: () => {},
+        removeEventListener: () => {},
+        dispatchEvent: () => false,
+      }),
+    });
+  };
 
   beforeEach(async () => {
+    localStorage.clear();
+
     await TestBed.configureTestingModule({
-      imports: [
-        ThemeToggle
-      ],
-      providers: [
-        provideHttpClient(),
-        provideHttpClientTesting()
-      ]
+      imports: [ThemeToggle],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ThemeToggle);
     component = fixture.componentInstance;
-    mockDocument = TestBed.inject(DOCUMENT);
+    documentRef = TestBed.inject(DOCUMENT);
 
-    // Clear localStorage before each test
-    localStorage.clear();
-  });
-
-  afterEach(() => {
-    vi.restoreAllMocks();
-    localStorage.clear();
+    documentRef.documentElement.classList.remove('prb-dark-theme');
   });
 
   it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('ngOnInit', () => {
-    it('should enable dark mode if saved theme in localStorage is "dark"', () => {
-      vi.spyOn(Storage.prototype, 'getItem').mockReturnValue('dark');
-      vi.spyOn(window, 'matchMedia').mockReturnValue({
-        matches: false,
-      } as MediaQueryList);
+  describe('ngOnInit Initialization', () => {
+    it('should enable dark mode if localStorage has "theme" set to "dark"', () => {
+      localStorage.setItem('theme', 'dark');
+      mockMatchMedia(false);
 
-      fixture.detectChanges(); // Calls ngOnInit
+      fixture.detectChanges();
 
       expect(component.isDarkMode).toBe(true);
-      expect(mockDocument.documentElement.classList.contains('prb-dark-theme')).toBe(true);
+      expect(documentRef.documentElement.classList.contains('prb-dark-theme')).toBe(true);
     });
 
-    it('should enable dark mode if no saved theme but system prefers dark mode', () => {
-      vi.spyOn(Storage.prototype, 'getItem').mockReturnValue(null);
-      vi.spyOn(window, 'matchMedia').mockReturnValue({
-        matches: true,
-      } as MediaQueryList);
+    it('should enable dark mode if no saved theme exists and system prefers dark mode', () => {
+      mockMatchMedia(true);
 
-      fixture.detectChanges(); // Calls ngOnInit
+      fixture.detectChanges();
 
       expect(component.isDarkMode).toBe(true);
-      expect(mockDocument.documentElement.classList.contains('prb-dark-theme')).toBe(true);
+      expect(documentRef.documentElement.classList.contains('prb-dark-theme')).toBe(true);
+    });
+
+    it('should NOT enable dark mode if localStorage has "theme" set to "light"', () => {
+      localStorage.setItem('theme', 'light');
+      mockMatchMedia(true);
+
+      fixture.detectChanges();
+
+      expect(component.isDarkMode).toBe(false);
+      expect(documentRef.documentElement.classList.contains('prb-dark-theme')).toBe(false);
+    });
+
+    it('should NOT enable dark mode if no saved theme exists and system prefers light mode', () => {
+      mockMatchMedia(false);
+
+      fixture.detectChanges();
+
+      expect(component.isDarkMode).toBe(false);
+      expect(documentRef.documentElement.classList.contains('prb-dark-theme')).toBe(false);
     });
   });
 
   describe('toggleTheme', () => {
-    it('should enable dark mode when currently in light mode', () => {
-      component.isDarkMode = false;
+    beforeEach(() => {
+      mockMatchMedia(false);
+      fixture.detectChanges();
+    });
 
+    it('should enable dark mode when currently in light mode', () => {
       component.toggleTheme();
 
       expect(component.isDarkMode).toBe(true);
-      expect(mockDocument.documentElement.classList.contains('prb-dark-theme')).toBe(true);
+      expect(documentRef.documentElement.classList.contains('prb-dark-theme')).toBe(true);
       expect(localStorage.getItem('theme')).toBe('dark');
     });
 
     it('should disable dark mode when currently in dark mode', () => {
-      // First enable dark mode
-      component.isDarkMode = true;
-      mockDocument.documentElement.classList.add('prb-dark-theme');
+      component.toggleTheme();
+      expect(component.isDarkMode).toBe(true);
 
       component.toggleTheme();
 
       expect(component.isDarkMode).toBe(false);
-      expect(mockDocument.documentElement.classList.contains('prb-dark-theme')).toBe(false);
+      expect(documentRef.documentElement.classList.contains('prb-dark-theme')).toBe(false);
       expect(localStorage.getItem('theme')).toBe('light');
     });
   });
