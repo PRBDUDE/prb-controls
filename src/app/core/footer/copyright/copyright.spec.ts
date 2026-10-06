@@ -1,49 +1,43 @@
-import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentRef } from '@angular/core';
 import { describe, beforeEach, it, expect } from 'vitest';
-import { provideHttpClient } from '@angular/common/http';
-import { provideHttpClientTesting } from '@angular/common/http/testing'; // Adjust path as needed
-import { Comment } from '@core/comment';
+import { Copyright } from './copyright';
 
-// Host component to test content projection (<ng-content>)
-@Component({
-  imports: [Comment],
-  template: `<prb-comment><p data-testid="projected-content">Hello World</p></prb-comment>`,
-})
-class TestHostComponent {}
-
-describe('Comment Component', () => {
-  let fixture: ComponentFixture<Comment>;
-  let component: Comment;
+describe('Copyright Component', () => {
+  let fixture: ComponentFixture<Copyright>;
+  let component: Copyright;
+  let componentRef: ComponentRef<Copyright>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        Comment
-      ],
-      providers: [
-        provideHttpClient(),
-        provideHttpClientTesting()
-      ]
+      imports: [Copyright],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Comment);
+    fixture = TestBed.createComponent(Copyright);
     component = fixture.componentInstance;
+    componentRef = fixture.componentRef;
     fixture.detectChanges();
   });
 
-  it('should create the component instance', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render projected content inside ng-content', () => {
-    const hostFixture = TestBed.createComponent(TestHostComponent);
-    hostFixture.detectChanges();
+  it('should display the default copyright holder and current year', () => {
+    const currentYear = new Date().getFullYear();
+    const compiled = fixture.nativeElement as HTMLElement;
 
-    const hostElement: HTMLElement = hostFixture.nativeElement;
-    const projectedElement = hostElement.querySelector('[data-testid="projected-content"]');
+    expect(compiled.textContent).toContain(`Programmer Roadblocks © ${currentYear}`);
+  });
 
-    expect(projectedElement).not.toBeNull();
-    expect(projectedElement?.textContent).toBe('Hello World');
+  it('should update template when copyrightHolder input is changed', () => {
+    const currentYear = new Date().getFullYear();
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    // Set signal input value via ComponentRef
+    componentRef.setInput('copyrightHolder', 'Acme Corp');
+    fixture.detectChanges();
+
+    expect(compiled.textContent).toContain(`Acme Corp © ${currentYear}`);
   });
 });
