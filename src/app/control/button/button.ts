@@ -67,7 +67,7 @@ export type buttonSize = 'large' | 'medium' | 'small';
         border-color: #cccccc;
 
         &:hover:not(:disabled) {
-          background-color: #c0c0c0;
+          background-color: #b0b0b0;
         }
       }
 
