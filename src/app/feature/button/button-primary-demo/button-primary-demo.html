@@ -1,0 +1,38 @@
+<jelly-container>
+  <card-container>
+    <card-header>Large Primary Button</card-header>
+    <card-body>
+      <p>
+        This demonstrates the Large Primary button.
+      </p>
+      <div>
+        <button-primary (click)="onPrimaryLargeClick($event)">Large</button-primary>
+        <button-primary [pill]="true" (click)="onPrimaryLargeClick($event)">Large</button-primary>
+      </div>
+    </card-body>
+  </card-container>
+  <card-container>
+    <card-header>Medium Primary Button</card-header>
+    <card-body>
+      <p>
+        This demonstrates the Medium Primary button.
+      </p>
+      <div>
+        <button-primary [size]="'medium'" (click)="onPrimaryMediumClick($event)">Medium</button-primary>
+        <button-primary [size]="'medium'" [pill]="true" (click)="onPrimaryMediumClick($event)">Medium</button-primary>
+      </div>
+    </card-body>
+  </card-container>
+  <card-container>
+    <card-header>Small Primary Button</card-header>
+    <card-body>
+      <p>
+        This demonstrates the Small Primary button.
+      </p>
+      <div>
+        <button-primary [size]="'small'" (click)="onPrimarySmallClick($event)">Small</button-primary>
+        <button-primary [size]="'small'" [pill]="true" (click)="onPrimarySmallClick($event)">Small</button-primary>
+      </div>
+    </card-body>
+  </card-container>
+</jelly-container>

@@ -7,6 +7,10 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'button',
+    loadComponent:  () => import('./feature/button/button').then((m) => m.Button),
+  },
+  {
     path: 'controls',
     loadComponent: () => import('./feature/controls/controls').then((m) => m.Controls),
     title: 'Controls',
