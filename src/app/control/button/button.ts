@@ -6,7 +6,12 @@ export type buttonSize = 'large' | 'medium' | 'small';
   imports: [],
   selector: 'button-primary, button-secondary, button-tertiary',
   template: `
-    <button [class]="size()" [class.pill]="pill()" [disabled]="disabled()" (click)="onClick($event)">
+    <button
+      [class]="size()"
+      [class.pill]="pill()"
+      [disabled]="disabled()"
+      (click)="onClick($event)"
+    >
       <ng-content></ng-content>
     </button>
   `,
@@ -45,7 +50,7 @@ export type buttonSize = 'large' | 'medium' | 'small';
         font-size: 9pt;
       }
 
-      /* Primary Style (Default <app-button>) */
+      /* Primary Style (<button-primary>) */
       :host(button-primary) button {
         background-color: var(--prb-color-primary-600);
         color: #ffffff;
@@ -55,7 +60,7 @@ export type buttonSize = 'large' | 'medium' | 'small';
         }
       }
 
-      /* Secondary Style (<app-button-secondary>) */
+      /* Secondary Style (<button-secondary>) */
       :host(button-secondary) button {
         background-color: #e0e0e0;
         color: #333333;
@@ -66,7 +71,7 @@ export type buttonSize = 'large' | 'medium' | 'small';
         }
       }
 
-      /* Tertiary Style (<app-button-tertiary>) */
+      /* Tertiary Style (<button-tertiary>) */
       :host(button-tertiary) button {
         background-color: transparent;
         color: var(--prb-color-tertiary-600);
