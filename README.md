@@ -2,6 +2,11 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.6.
 
+## Initial Setup
+
+Make sure you delete the package-lock.json file before you run "npm install".
+Do this because this project was built using the Verdaccio NPM repository server on my machine.
+
 ## Development server
 
 To start a local development server, run:
