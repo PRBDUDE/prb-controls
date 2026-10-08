@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { UserTag } from './user-tag';
+import { CodeColoring } from './code-coloring';
 
-describe('UserTag', () => {
-  let component: UserTag;
-  let fixture: ComponentFixture<UserTag>;
+describe('CodeColoring', () => {
+  let component: CodeColoring;
+  let fixture: ComponentFixture<CodeColoring>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UserTag],
+      imports: [CodeColoring],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(UserTag);
+    fixture = TestBed.createComponent(CodeColoring);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

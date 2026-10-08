@@ -4,21 +4,10 @@ import { PainScaleSelector } from '@control/pain-scale-selector';
 import { CardBody } from '@core/card-body';
 import { CardContainer } from '@core/card-container';
 import { CardHeader } from '@core/card-header';
-import { HtmlAttribute } from '@core/html-attribute';
-import { HtmlTag } from '@core/html-tag';
-import { UserTag } from '@core/user-tag';
+import { CodeColoring } from '@core/code-coloring';
 
 @Component({
-  imports: [
-    JellyContainer,
-    PainScaleSelector,
-    CardBody,
-    CardContainer,
-    CardHeader,
-    HtmlAttribute,
-    HtmlTag,
-    UserTag,
-  ],
+  imports: [JellyContainer, PainScaleSelector, CardBody, CardContainer, CardHeader, CodeColoring],
   selector: 'prb-pain-scale-demo',
   styleUrl: './pain-scale-demo.scss',
   templateUrl: './pain-scale-demo.html',

@@ -3,12 +3,11 @@ import { JellyContainer } from '@core/jelly-container';
 import { CardContainer } from '@core/card-container';
 import { CardHeader } from '@core/card-header';
 import { CardBody } from '@core/card-body';
-import { HtmlTag } from '@core/html-tag';
-import { HtmlAttribute } from '@core/html-attribute';
+import { CodeColoring } from '@core/code-coloring';
 import { Button } from '@control/button/button';
 
 @Component({
-  imports: [JellyContainer, CardContainer, CardHeader, CardBody, HtmlTag, HtmlAttribute, Button],
+  imports: [JellyContainer, CardContainer, CardHeader, CardBody, CodeColoring, Button],
   selector: 'prb-about-button-demo',
   styleUrl: './about-button-demo.scss',
   templateUrl: './about-button-demo.html',
