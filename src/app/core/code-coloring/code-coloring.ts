@@ -37,6 +37,11 @@ import { Component } from '@angular/core';
 
       :host(prb-caution) {
         color: var(--color-caution);
+        font-weight: bold;
+
+        &.large {
+          font-size: 18pt;
+        }
       }
 
       :host(prb-comment) {
