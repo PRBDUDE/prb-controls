@@ -3,3 +3,7 @@
   margin: 0 auto 5em auto;
   min-height: calc(var(--content-height) - 2em);
 }
+
+.content-section-description {
+  background-color: var(--color-content-section-background);
+}
