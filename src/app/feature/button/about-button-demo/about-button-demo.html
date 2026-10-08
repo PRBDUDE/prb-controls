@@ -1,0 +1,36 @@
+<jelly-container>
+  <card-container>
+    <card-header>One Button Control for Three Buttons</card-header>
+    <card-body>
+      <p>
+        One control with Three Selectors.
+        The selector determines which styling to be used for the button.
+      </p>
+      <p>
+        The ":<html-tag>host</html-tag>(<html-attribute>selector-name</html-attribute>)
+        <html-tag>button</html-tag> &#123;&#125;" is used to style a specific control selector
+        for the button.
+      </p>
+      <p>
+        Selectors: <html-attribute>button-primary</html-attribute>,
+        <html-attribute>button-secondary</html-attribute>,
+        <html-attribute>button-tertiary</html-attribute>
+      </p>
+      <p>
+        These buttons are from the same control.
+        The only difference is the selector used.
+        Styling for each selector is accomplished using the ":host() button" styling class.
+      </p>
+      <div>
+        <button-primary [size]="'medium'" (click)="onClickPrimary($event)">Primary</button-primary>
+        <button-secondary [size]="'medium'" (click)="onClickSecondary($event)">Secondary</button-secondary>
+        <button-tertiary [size]="'medium'" (click)="onClickTertiary($event)">Tertiary</button-tertiary>
+      </div>
+      <div>
+        <button-primary [size]="'medium'" [pill]="true" (click)="onClickPrimary($event)">Primary</button-primary>
+        <button-secondary [size]="'medium'" [pill]="true" (click)="onClickSecondary($event)">Secondary</button-secondary>
+        <button-tertiary [size]="'medium'" [pill]="true" (click)="onClickTertiary($event)">Tertiary</button-tertiary>
+      </div>
+    </card-body>
+  </card-container>
+</jelly-container>

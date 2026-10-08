@@ -4,6 +4,8 @@
     <card-body>
       <p>
         This demonstrates the Large Primary button.
+        <br />
+        &nbsp;&nbsp;[pill]="true" (for the pill shaped button)
       </p>
       <div>
         <button-primary (click)="onPrimaryLargeClick($event)">Large</button-primary>
@@ -16,6 +18,10 @@
     <card-body>
       <p>
         This demonstrates the Medium Primary button.
+        <br />
+        &nbsp;&nbsp;[size]="'medium'"
+        <br />
+        &nbsp;&nbsp;[pill]="true" (for the pill shaped button)
       </p>
       <div>
         <button-primary [size]="'medium'" (click)="onPrimaryMediumClick($event)">Medium</button-primary>
@@ -28,6 +34,10 @@
     <card-body>
       <p>
         This demonstrates the Small Primary button.
+        <br />
+        &nbsp;&nbsp;[size]="'small'"
+        <br />
+        &nbsp;&nbsp;[pill]="true" (for the pill shaped button)
       </p>
       <div>
         <button-primary [size]="'small'" (click)="onPrimarySmallClick($event)">Small</button-primary>

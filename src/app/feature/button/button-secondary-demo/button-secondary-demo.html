@@ -4,6 +4,8 @@
     <card-body>
       <p>
         This demonstrates the Large Secondary button.
+        <br />
+        &nbsp;&nbsp;[pill]="true" (for the pill shaped button)
       </p>
       <div>
         <button-secondary (click)="onSecondaryLargeClick($event)">Large</button-secondary>
@@ -16,6 +18,10 @@
     <card-body>
       <p>
         This demonstrates the Medium Secondary Button.
+        <br />
+        &nbsp;&nbsp;[size]="'medium'"
+        <br />
+        &nbsp;&nbsp;[pill]="true" (for the pill shaped button)
       </p>
       <div>
         <button-secondary [size]="'medium'" (click)="onSecondaryMediumClick($event)">Medium</button-secondary>
@@ -29,6 +35,10 @@
     <card-body>
       <p>
         This demonstrates the Small Secondary button.
+        <br />
+        &nbsp;&nbsp;[size]="'small'"
+        <br />
+        &nbsp;&nbsp;[pill]="true" (for the pill shaped button)
       </p>
       <div>
         <button-secondary [size]="'small'" (click)="onSecondarySmallClick($event)">Small</button-secondary>

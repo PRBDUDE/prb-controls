@@ -1,4 +1,7 @@
 <div class="page-content">
+  <prb-section [sectionName]="'aboutButton'" [description]="'About Button'">
+    <prb-about-button-demo />
+  </prb-section>
   <prb-section [sectionName]="'buttonPrimary'" [description]="'Button Primary'">
     <prb-button-primary-demo />
   </prb-section>
@@ -11,6 +14,11 @@
 </div>
 <div class="page-menu">
   <nav>
+    <li>
+      <a href="/button#aboutButton" aria-label="About Button">
+        About
+      </a>
+    </li>
     <li>
       <a href="/button#buttonPrimary" aria-label="Button Primary">
         Button Primary
