@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   imports: [],
-  selector: 'class-name, html-attribute, html-tag, number-value, user-tag',
+  selector:
+    'class-name, key-word, html-attribute, html-tag, method-name, number-value, prb-caution, prb-comment, prb-property, prb-string, user-tag',
   template: `<ng-content></ng-content>`,
   styles: [
     `
@@ -14,6 +15,10 @@ import { Component } from '@angular/core';
         color: var(--color-class-name);
       }
 
+      :host(key-word) {
+        color: var(--color-key-word);
+      }
+
       :host(html-attribute) {
         color: var(--color-html-attribute);
       }
@@ -22,8 +27,28 @@ import { Component } from '@angular/core';
         color: var(--color-html-tag);
       }
 
+      :host(method-name) {
+        color: var(--color-method-name);
+      }
+
       :host(number-value) {
         color: var(--color-number-value);
+      }
+
+      :host(prb-caution) {
+        color: var(--color-caution);
+      }
+
+      :host(prb-comment) {
+        color: var(--color-comment);
+      }
+
+      :host(prb-property) {
+        color: var(--color-property);
+      }
+
+      :host(prb-string) {
+        color: var(--color-string);
       }
 
       :host(user-tag) {
