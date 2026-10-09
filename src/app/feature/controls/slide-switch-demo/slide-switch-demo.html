@@ -34,17 +34,17 @@
           [label]="'Disabled'" />
       </p>
       <h4>Demo Slide Switch</h4>
-      <p>
+      <div>
         <slide-switch
           [(checked)]="demoPositionValue"
           [label]="'Label'"
           [labelPosition]="selectedLabelPosition()"
           [disabled]="disabled()"
         />
-      </p>
-      <p>
-        Result from slide-switch [{{demoPositionValue()}}]
-      </p>
+      </div>
+      <div>
+        Result from slide-switch [{{ demoPositionValue() }}]
+      </div>
     </card-body>
   </card-container>
 </jelly-container>

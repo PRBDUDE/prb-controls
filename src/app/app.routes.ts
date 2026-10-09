@@ -21,11 +21,6 @@ export const routes: Routes = [
     title: 'Color Palette',
   },
   {
-    path: 'slide',
-    loadComponent: () => import('./feature/slide/slide').then((m) => m.Slide),
-    title: 'Slide',
-  },
-  {
     path: 'path-not-found',
     loadComponent: () => import('./core/path-not-found/path-not-found').then((m) => m.PathNotFound),
     title: 'Path not found',
