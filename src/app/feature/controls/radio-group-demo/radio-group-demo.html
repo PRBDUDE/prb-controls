@@ -1,0 +1,88 @@
+<jelly-container>
+  Here are the AI prompts used to generate the radio-group control.
+  <ul>
+    <li>angular 22</li>
+    <li>create a radio-group component which takes an array of name value pairs which represent the different radio
+      buttons and labels
+    </li>
+    <li>orientation horizontal will display the radio buttons horizontally</li>
+    <li>orientation vertical will display the radio buttons vertically</li>
+    <li>name property of group</li>
+  </ul>
+  <card-container>
+    <card-header>Radio Group</card-header>
+    <card-body>
+      <p>
+        This control is a group of radio buttons defined by an array of name/value pairs.
+      </p>
+      <p>
+        Here is the interface used to contain the name/value pairs.
+      </p>
+      <div>
+        <html-tag>export interface</html-tag> RadioOption&lt;<prb-comment>T</prb-comment> = <html-tag>any</html-tag>&gt;
+        &#123;
+      </div>
+      <indent-1>
+        <html-attribute>label</html-attribute>: <html-tag>string;</html-tag>
+      </indent-1>
+      <indent-1>
+        <html-attribute>value</html-attribute>: <prb-comment>T</prb-comment><html-tag>;</html-tag>
+      </indent-1>
+      <div>
+        &#125;
+      </div>
+
+      <br/>
+      <div>
+        <html-tag>&lt;</html-tag>
+        <user-tag>radio-group</user-tag>
+      </div>
+      <indent-1>
+        <html-attribute>[options]</html-attribute><prb-string>="'{{ JSON.stringify(selectionOptions) }}'"</prb-string>
+      </indent-1>
+      <indent-1>
+        <html-attribute>[name]</html-attribute><prb-string>="'options'"</prb-string>
+      </indent-1>
+      <indent-1>
+        <html-attribute>[orientation]</html-attribute><prb-string>="'{{ orientation() }}'"</prb-string>
+      </indent-1>
+      <indent-1>
+        <html-attribute>[(ngModel)]</html-attribute><prb-string>="'{{ selectedOption() }}'"</prb-string>
+      </indent-1>
+      <indent-1>
+        <html-attribute>[disabled]</html-attribute><prb-string>="{{ disabled() }}"</prb-string>
+      </indent-1>
+      <div><html-tag>/&gt;</html-tag></div>
+
+      <p>
+        The control can be oriented vertical or horizontal.
+      </p>
+      <radio-group
+        [options]="orientationOptions"
+        [name]="'orientationControl'"
+        [orientation]="'horizontal'"
+        [(ngModel)]="orientation"
+      />
+
+      <p>
+        The control can be disabled.
+      </p>
+      <slide-switch
+        [(ngModel)]="disabled"
+        [label]="'Disabled'"/>
+
+      <h4>Demo Radio Group</h4>
+      <div class="center">
+        <radio-group
+          [options]="selectionOptions"
+          [name]="'options'"
+          [orientation]="orientation()"
+          [(ngModel)]="selectedOption"
+          [disabled]="disabled()" />
+      </div>
+      <div class="center">
+        Result from slide-switch [{{ selectedOption() }}]
+      </div>
+    </card-body>
+  </card-container>
+</jelly-container>
