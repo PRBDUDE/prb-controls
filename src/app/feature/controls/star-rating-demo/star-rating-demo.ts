@@ -7,6 +7,7 @@ import { CardBody } from '@core/card-body';
 import { CodeColoring } from '@core/code-coloring';
 import { SlideSwitch } from '@control/slide-switch/slide-switch';
 import { FormsModule } from '@angular/forms';
+import { Indent } from '@core/indent';
 
 @Component({
   imports: [
@@ -18,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     CardBody,
     SlideSwitch,
     FormsModule,
+    Indent,
   ],
   selector: 'prb-star-rating-demo',
   styleUrl: './star-rating-demo.scss',

@@ -19,13 +19,24 @@
   <card-container>
     <card-header>HTML - Control usage</card-header>
     <card-body>
-      <html-tag>&lt;</html-tag>
-      <user-tag>prb-star-rating</user-tag>
-      <html-attribute>[(rating)]</html-attribute>
-      <html-tag>=</html-tag>
-      <html-attribute>selectedRating
-      </html-attribute>
-      <html-tag>/&gt;</html-tag>
+      <div>
+        <html-tag>&lt;</html-tag>
+        <user-tag>prb-star-rating</user-tag>
+      </div>
+      <indent-1>
+        <html-attribute>[(rating)]</html-attribute>
+        <html-tag>=</html-tag>
+        <html-attribute>"'{{ selectedRating }}'"
+        </html-attribute>
+      </indent-1>
+      <indent-1>
+        <html-attribute>[disabled]</html-attribute>
+        <html-tag>=</html-tag>
+        <html-attribute>"'{{ disabled() }}'"</html-attribute>
+      </indent-1>
+      <div>
+        <html-tag>/&gt;</html-tag>
+      </div>
       <p>
         <html-attribute>rating</html-attribute>
         : is a two way input/out property showing the rating in a numeric value.
@@ -44,7 +55,7 @@
       </p>
       <slide-switch
         [(ngModel)]="disabled"
-        [label]="'Disabled'"/>
+        [label]="'Disabled'" />
     </card-body>
   </card-container>
   <p>
@@ -61,16 +72,29 @@
   <card-container>
     <card-header>HTML - Control usage</card-header>
     <card-body>
-      <html-tag>&lt;</html-tag>
-      <user-tag>prb-star-rating</user-tag>
-      <html-attribute>[(rating)]</html-attribute>
-      <html-tag>=</html-tag>
-      <html-attribute>selectedRating2
-        [maxStars]
-      </html-attribute>
-      <html-tag>=</html-tag>
-      <html-attribute>"10"</html-attribute>
-      <html-tag>/&gt;</html-tag>
+      <div>
+        <html-tag>&lt;</html-tag>
+        <user-tag>prb-star-rating</user-tag>
+      </div>
+      <indent-1>
+        <html-attribute>[(rating)]</html-attribute>
+        <html-tag>=</html-tag>
+        <html-attribute>"'{{ selectedRating2 }}'"
+        </html-attribute>
+      </indent-1>
+      <indent-1>
+        <html-attribute>[maxStars]</html-attribute>
+        <html-tag>=</html-tag>
+        <html-attribute>"'10'"</html-attribute>
+      </indent-1>
+      <indent-1>
+        <html-attribute>[disabled]</html-attribute>
+        <html-tag>=</html-tag>
+        <html-attribute>"{{ disabled2() }}"</html-attribute>
+      </indent-1>
+      <div>
+        <html-tag>/&gt;</html-tag>
+      </div>
       <p>
         <html-attribute>rating</html-attribute>
         : is a two way input/out property showing the rating in a numeric value.
@@ -89,7 +113,7 @@
       </p>
       <slide-switch
         [(ngModel)]="disabled2"
-        [label]="'Disabled'"/>
+        [label]="'Disabled'" />
     </card-body>
   </card-container>
   <p>
