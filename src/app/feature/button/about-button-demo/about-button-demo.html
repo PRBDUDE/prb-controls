@@ -22,14 +22,40 @@
         Styling for each selector is accomplished using the ":host() button" styling class.
       </p>
       <div>
-        <button-primary [size]="'medium'" (click)="onClickPrimary($event)">Primary</button-primary>
-        <button-secondary [size]="'medium'" (click)="onClickSecondary($event)">Secondary</button-secondary>
-        <button-tertiary [size]="'medium'" (click)="onClickTertiary($event)">Tertiary</button-tertiary>
+        <slide-switch [(checked)]="isPill" [label]="'Pill'" />
       </div>
       <div>
-        <button-primary [size]="'medium'" [pill]="true" (click)="onClickPrimary($event)">Primary</button-primary>
-        <button-secondary [size]="'medium'" [pill]="true" (click)="onClickSecondary($event)">Secondary</button-secondary>
-        <button-tertiary [size]="'medium'" [pill]="true" (click)="onClickTertiary($event)">Tertiary</button-tertiary>
+        <slide-switch [(checked)]="isDisabled" [label]="'Disable'" />
+      </div>
+      <div>
+        <radio-group
+          [options]="buttonSizes"
+          name="size"
+          [orientation]="'horizontal'"
+          [(value)]="selectedSize" />
+      </div>
+      <div>
+        <button-primary
+          [size]="selectedSize()"
+          [pill]="isPill()"
+          [disabled]="isDisabled()"
+          (click)="onClickPrimary($event)">
+          Primary
+        </button-primary>
+        <button-secondary
+          [size]="selectedSize()"
+          [pill]="isPill()"
+          [disabled]="isDisabled()"
+          (click)="onClickSecondary($event)">
+          Secondary
+        </button-secondary>
+        <button-tertiary
+          [size]="selectedSize()"
+          [pill]="isPill()"
+          [disabled]="isDisabled()"
+          (click)="onClickTertiary($event)">
+          Tertiary
+        </button-tertiary>
       </div>
     </card-body>
   </card-container>

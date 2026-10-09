@@ -13,6 +13,11 @@
   --left-side-panel-menu-width: 7em;
 
   --font-family-body: Arial, Helvetica;
+
+  --label-font-size: 11pt;
+  --label-font-family: var(--font-family-body);
+  --label-color: var(--color-label);
+  --label-gap: 5px;
 }
 
 body {

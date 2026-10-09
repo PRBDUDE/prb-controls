@@ -89,6 +89,8 @@
 
   --color-shadow: var(--prb-color-gray-400);
 
+  --color-label: inherit;
+
   &[class*="prb-dark-theme"] {
     --color-header-background: hsl(var(--base-hue) 80% 15%);
     --color-header-text: hsl(var(--base-hue) 10% 100%);
