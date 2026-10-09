@@ -27,7 +27,7 @@ import { SlideSwitch } from '@control/slide-switch/slide-switch';
 })
 export class RadioGroupDemo {
   protected selectedOption = model<string>();
-  protected orientation = model<'vertical' | 'horizontal'>('vertical');
+  protected orientation = model<'vertical' | 'horizontal'>('horizontal');
   protected disabled = model<boolean>(false);
 
   orientationOptions: RadioOption[] = [

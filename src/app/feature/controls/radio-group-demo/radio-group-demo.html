@@ -70,19 +70,19 @@
       <slide-switch
         [(ngModel)]="disabled"
         [label]="'Disabled'"/>
-
-      <h4>Demo Radio Group</h4>
-      <div class="center">
-        <radio-group
-          [options]="selectionOptions"
-          [name]="'options'"
-          [orientation]="orientation()"
-          [(ngModel)]="selectedOption"
-          [disabled]="disabled()" />
-      </div>
-      <div class="center">
-        Result from slide-switch [{{ selectedOption() }}]
-      </div>
     </card-body>
   </card-container>
+
+  <h4>Demo Radio Group</h4>
+  <div class="center">
+    <radio-group
+      [options]="selectionOptions"
+      [name]="'options'"
+      [orientation]="orientation()"
+      [(ngModel)]="selectedOption"
+      [disabled]="disabled()" />
+  </div>
+  <div class="center">
+    Result from slide-switch [{{ selectedOption() }}]
+  </div>
 </jelly-container>
