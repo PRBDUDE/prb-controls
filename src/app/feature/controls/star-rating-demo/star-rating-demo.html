@@ -39,12 +39,21 @@
         <html-attribute>disabled</html-attribute>
         : is a boolean
       </p>
+      <p>
+        The control can be disabled.
+      </p>
+      <slide-switch
+        [(ngModel)]="disabled"
+        [label]="'Disabled'"/>
     </card-body>
   </card-container>
   <p>
     maxStars is not set
   </p>
-  <prb-star-rating [(rating)]=selectedRating />
+  <prb-star-rating
+    [(rating)]=selectedRating
+    [disabled]="disabled()"
+  />
   <p>
     Selected Rating: {{ selectedRating }}
   </p>
@@ -75,12 +84,21 @@
         <html-attribute>disabled</html-attribute>
         : is a boolean
       </p>
+      <p>
+        The control can be disabled.
+      </p>
+      <slide-switch
+        [(ngModel)]="disabled2"
+        [label]="'Disabled'"/>
     </card-body>
   </card-container>
   <p>
     maxStars is set to 10
   </p>
-  <prb-star-rating [(rating)]=selectedRating2 [maxStars]="10" />
+  <prb-star-rating
+    [(rating)]=selectedRating2
+    [disabled]="disabled2()"
+    [maxStars]="10" />
   <p>
     Selected Rating: {{ selectedRating2 }}
   </p>

@@ -1,4 +1,4 @@
-<div class="star-rating-container" role="radiogroup" aria-label="Star Rating">
+<div class="star-rating-container" [class.disabled]="disabled()" role="radiogroup" aria-label="Star Rating">
   @for (star of stars(); track star) {
     <button
       type="button"
