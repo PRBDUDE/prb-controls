@@ -3,9 +3,13 @@
   flex-direction: column;
   gap: 16px;
   max-width: 900px;
-  font-family: system-ui,
-  -apple-system,
-  sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
+
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
 }
 
 .scale-title {

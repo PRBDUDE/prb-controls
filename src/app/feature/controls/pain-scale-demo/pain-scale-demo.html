@@ -2,7 +2,8 @@
   Here are the AI prompts (in the order that I used them) used to generate the Pain Scale control.
   <ul>
     <li>
-      create an angular 22 component to permit patient to select a pain level from 1 to 10 where 1 is no pain and 10 in excruciating pain - return only the pain index
+      create an angular 22 component to permit patient to select a pain level from 1 to 10 where 1 is no pain and 10 in
+      excruciating pain - return only the pain index
     </li>
     <li>
       use icons to illustrate pain level
@@ -15,22 +16,44 @@
     </li>
   </ul>
   <card-container>
-    <card-header>HTML</card-header>
+    <card-header>Pain Scale</card-header>
     <card-body>
-      <html-tag>&lt;</html-tag><user-tag>prb-pain-scale-selector</user-tag>
-      <html-attribute>[(selectedPainLevel)]</html-attribute><html-tag>=</html-tag><html-attribute>selectedPainLevel
-    </html-attribute>
-      <html-tag>/&gt;</html-tag>
+      <div>
+        <html-tag>&lt;</html-tag>
+        <user-tag>prb-pain-scale-selector</user-tag>
+      </div>
+      <indent-1>
+        <html-attribute>[(selectedPainLevel)]</html-attribute>
+        <html-tag>=</html-tag><prb-string>"'{{ selectedPainLevel }}'"</prb-string>
+      </indent-1>
+      <indent-1>
+        <html-attribute>[disabled]</html-attribute>
+        <html-tag>=</html-tag>
+        <prb-string>"{{ disabled() }}"</prb-string>
+      </indent-1>
+      <div>
+        <html-tag>/&gt;</html-tag>
+      </div>
       <p>
-        <html-attribute>selectedPainLevel</html-attribute>: is a two way input/out property showing the rating in a numeric value.
+        <html-attribute>selectedPainLevel</html-attribute>: is a two way input/out property showing the rating in a
+        numeric value.
       </p>
       <p>
         <html-attribute>disabled</html-attribute>: is a boolean
       </p>
+      <p>
+        The control can be disabled.
+      </p>
+      <slide-switch
+        [(ngModel)]="disabled"
+        [label]="'Disabled'"/>
     </card-body>
   </card-container>
 
-  <prb-pain-scale-selector [(selectedPainLevel)]=selectedPainLevel />
+  <prb-pain-scale-selector
+    [(selectedPainLevel)]=selectedPainLevel
+    [disabled]="disabled()"
+  />
   <p>
     Selected Pain Level: {{ selectedPainLevel }}
   </p>
