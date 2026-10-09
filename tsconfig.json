@@ -22,6 +22,7 @@
         "./src/app/core/code-coloring/*",
         "./src/app/core/footer/*",
         "./src/app/core/header/*",
+        "./src/app/core/indent/*",
         "./src/app/core/jelly-container/*",
         "./src/app/core/layout/*",
         "./src/app/core/menu/*",

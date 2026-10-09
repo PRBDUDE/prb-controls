@@ -15,6 +15,25 @@
   <card-container>
     <card-header>Options</card-header>
     <card-body>
+      <div>
+        <html-tag>&lt;</html-tag>
+        <user-tag>slide-switch</user-tag>
+      </div>
+      <indent-1>
+        <html-attribute>[(checked)]</html-attribute><prb-string>="demoPositionValue"</prb-string>
+      </indent-1>
+      <indent-1>
+        <html-attribute>[label]</html-attribute><prb-string>="'Label'"</prb-string>
+      </indent-1>
+      <indent-1>
+        <html-attribute>[labelPosition]</html-attribute><prb-string>="'{{selectedLabelPosition()}}'"</prb-string>
+      </indent-1>
+      <indent-1>
+        <html-attribute>[disabled]</html-attribute><prb-string>={{disabled()}}</prb-string>
+      </indent-1>
+      <div>
+        <html-tag>/&gt;</html-tag>
+      </div>
       <p>
         The "Label" can be displayed on the right or the left side of the control.
       </p>
@@ -34,7 +53,7 @@
           [label]="'Disabled'" />
       </p>
       <h4>Demo Slide Switch</h4>
-      <div>
+      <div class="center">
         <slide-switch
           [(checked)]="demoPositionValue"
           [label]="'Label'"
@@ -42,7 +61,7 @@
           [disabled]="disabled()"
         />
       </div>
-      <div>
+      <div class="center">
         Result from slide-switch [{{ demoPositionValue() }}]
       </div>
     </card-body>

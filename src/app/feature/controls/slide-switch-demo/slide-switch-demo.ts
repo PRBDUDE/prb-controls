@@ -5,9 +5,20 @@ import { CardHeader } from '@core/card-header';
 import { CardBody } from '@core/card-body';
 import { SlideSwitch } from '@control/slide-switch/slide-switch';
 import { RadioGroup, RadioOption } from '@control/radio-group/radio-group';
+import { CodeColoring } from '@core/code-coloring';
+import { Indent } from '@core/indent';
 
 @Component({
-  imports: [JellyContainer, CardContainer, CardHeader, CardBody, SlideSwitch, RadioGroup],
+  imports: [
+    JellyContainer,
+    CardContainer,
+    CardHeader,
+    CardBody,
+    SlideSwitch,
+    RadioGroup,
+    CodeColoring,
+    Indent,
+  ],
   selector: 'prb-slide-switch-demo',
   styleUrl: './slide-switch-demo.scss',
   templateUrl: './slide-switch-demo.html',
@@ -20,6 +31,6 @@ export class SlideSwitchDemo {
 
   labelPosition: RadioOption[] = [
     { label: 'Left', value: 'left' },
-    { label: 'Right', value: 'right' }
+    { label: 'Right', value: 'right' },
   ];
 }
