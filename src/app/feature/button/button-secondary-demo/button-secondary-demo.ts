@@ -1,5 +1,5 @@
 import { Component, model } from '@angular/core';
-import { Button } from '@control/button/button';
+import { Button, buttonSize } from '@control/button/button';
 import { JellyContainer } from '@core/jelly-container';
 import { CardContainer } from '@core/card-container';
 import { CardHeader } from '@core/card-header';
@@ -30,7 +30,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './button-secondary-demo.html',
 })
 export class ButtonSecondaryDemo {
-  protected size = model<'large' | 'medium' | 'small'>('large');
+  protected size = model<buttonSize>('large');
   protected pill = model<boolean>(false);
   protected disabled = model<boolean>(false);
 
