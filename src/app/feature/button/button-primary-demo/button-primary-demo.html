@@ -1,48 +1,52 @@
 <jelly-container>
   <card-container>
-    <card-header>Large Primary Button</card-header>
+    <card-header>Primary Button</card-header>
     <card-body>
       <p>
-        This demonstrates the Large Primary button.
-        <br />
-        &nbsp;&nbsp;[pill]="true" (for the pill shaped button)
+        This demonstrates the {{ size() | titlecase }} Primary button.
       </p>
       <div>
-        <button-primary (click)="onPrimaryLargeClick($event)">Large</button-primary>
-        <button-primary [pill]="true" (click)="onPrimaryLargeClick($event)">Large</button-primary>
+        <html-tag>&lt;</html-tag>
+        <user-tag>button-primary</user-tag>
       </div>
-    </card-body>
-  </card-container>
-  <card-container>
-    <card-header>Medium Primary Button</card-header>
-    <card-body>
+      <indent-1>
+        <html-attribute>[size]</html-attribute><prb-string>="{{ size() }}"</prb-string>
+      </indent-1>
+      <indent-1>
+        <html-attribute>[pill]</html-attribute><prb-string>="{{ pill() }}"</prb-string>
+      </indent-1>
+      <indent-1>
+        <html-attribute>(click)</html-attribute><prb-string>="</prb-string><method-name>onPrimaryClick</method-name>()
+        <prb-string>"</prb-string>
+      </indent-1>
+      <indent-1>
+      </indent-1>
+      <div><html-tag>&gt;</html-tag>{{ size() | titlecase }}<html-tag>&lt;/</html-tag>
+        <user-tag>button-primary</user-tag>
+        <html-tag>&gt;</html-tag>
+      </div>
+
+
       <p>
-        This demonstrates the Medium Primary button.
-        <br />
-        &nbsp;&nbsp;[size]="'medium'"
-        <br />
-        &nbsp;&nbsp;[pill]="true" (for the pill shaped button)
+        Button size
       </p>
-      <div>
-        <button-primary [size]="'medium'" (click)="onPrimaryMediumClick($event)">Medium</button-primary>
-        <button-primary [size]="'medium'" [pill]="true" (click)="onPrimaryMediumClick($event)">Medium</button-primary>
-      </div>
+      <radio-group
+        [options]="sizeOptions"
+        [name]="'sizeControl'"
+        [orientation]="'horizontal'"
+        [(ngModel)]="size"
+      />
+      <br />
+
+      <slide-switch
+        [(ngModel)]="pill"
+        [label]="'pill'"
+      />
     </card-body>
   </card-container>
-  <card-container>
-    <card-header>Small Primary Button</card-header>
-    <card-body>
-      <p>
-        This demonstrates the Small Primary button.
-        <br />
-        &nbsp;&nbsp;[size]="'small'"
-        <br />
-        &nbsp;&nbsp;[pill]="true" (for the pill shaped button)
-      </p>
-      <div>
-        <button-primary [size]="'small'" (click)="onPrimarySmallClick($event)">Small</button-primary>
-        <button-primary [size]="'small'" [pill]="true" (click)="onPrimarySmallClick($event)">Small</button-primary>
-      </div>
-    </card-body>
-  </card-container>
+  <div>
+    <button-primary [size]="size()" [pill]="pill()"
+                    (click)="onPrimaryClick($event)">{{ size() | titlecase }}
+    </button-primary>
+  </div>
 </jelly-container>
