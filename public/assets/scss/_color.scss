@@ -87,8 +87,6 @@
   --color-table-border: var(--prb-color-teal-700);
   --color-table-background: var(--prb-color-teal-500);
 
-  --color-shadow: var(--prb-color-gray-400);
-
   --color-label: inherit;
 
   &[class*="prb-dark-theme"] {
@@ -153,8 +151,6 @@
 
     --color-table-border: var(--prb-color-teal-200);
     --color-table-background: var(--prb-color-teal-800);
-
-    --color-shadow: var(--prb-color-gray-700);
   }
 }
 

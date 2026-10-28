@@ -23,6 +23,7 @@ nav {
       background-color: var(--color-menu-button-background);
       color: var(--color-menu-text);
       border-radius: 18px;
+      box-shadow: var(--menu-box-shadow);
 
       &:hover {
         background-color: var(--color-menu-background-hover);

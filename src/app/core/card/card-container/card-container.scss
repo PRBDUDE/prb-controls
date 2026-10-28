@@ -3,6 +3,6 @@
   background-color: var(--color-card-container-background);
   border: 1px solid var(--color-card-border);
   border-radius: 10px;
-  box-shadow: 5px 5px 10px var(--color-shadow);
+  box-shadow: var(--card-box-shadow);
   margin-bottom: 16px;
 }

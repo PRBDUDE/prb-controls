@@ -7,7 +7,7 @@
   padding: 10px;
   border-radius: 18px;
   border: 1px solid var(--color-page-menu-border);
-  box-shadow: 5px 5px 5px var(--color-shadow);
+  box-shadow: var(--floating-menu-box-shadow);
 
   nav {
     display: flex;
@@ -24,6 +24,7 @@
       background-color: var(--color-page-menu-button-background);
       color: var(--color-page-menu-text);
       border-radius: 18px;
+      box-shadow: var(--menu-box-shadow);
 
       &:hover {
         background-color: var(--color-page-menu-hover-background);
