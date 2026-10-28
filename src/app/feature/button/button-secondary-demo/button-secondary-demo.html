@@ -1,49 +1,50 @@
 <jelly-container>
   <card-container>
-    <card-header>Large Secondary Button</card-header>
+    <card-header>Secondary Button</card-header>
     <card-body>
       <p>
-        This demonstrates the Large Secondary button.
-        <br />
-        &nbsp;&nbsp;[pill]="true" (for the pill shaped button)
+        This demonstrates the {{ size() | titlecase }} Secondary button.
       </p>
       <div>
-        <button-secondary (click)="onSecondaryLargeClick($event)">Large</button-secondary>
-        <button-secondary [pill]="true" (click)="onSecondaryLargeClick($event)">Large</button-secondary>
+        <html-tag>&lt;</html-tag>
+        <user-tag>button-secondary</user-tag>
       </div>
-    </card-body>
-  </card-container>
-  <card-container>
-    <card-header>Medium Secondary Button</card-header>
-    <card-body>
+      <indent-1>
+        <html-attribute>[size]</html-attribute><prb-string>="{{ size() }}"</prb-string>
+      </indent-1>
+      <indent-1>
+        <html-attribute>[pill]</html-attribute><prb-string>="{{ pill() }}"</prb-string>
+      </indent-1>
+      <indent-1>
+        <html-attribute>(click)</html-attribute><prb-string>="</prb-string><method-name>onPrimaryClick</method-name>()
+        <prb-string>"</prb-string>
+      </indent-1>
+      <indent-1>
+      </indent-1>
+      <div><html-tag>&gt;</html-tag>{{ size() | titlecase }}<html-tag>&lt;/</html-tag>
+        <user-tag>button-secondary</user-tag>
+        <html-tag>&gt;</html-tag>
+      </div>
+
       <p>
-        This demonstrates the Medium Secondary Button.
-        <br />
-        &nbsp;&nbsp;[size]="'medium'"
-        <br />
-        &nbsp;&nbsp;[pill]="true" (for the pill shaped button)
+        Button size
       </p>
-      <div>
-        <button-secondary [size]="'medium'" (click)="onSecondaryMediumClick($event)">Medium</button-secondary>
-        <button-secondary [size]="'medium'" [pill]="true" (click)="onSecondaryMediumClick($event)">Medium
-        </button-secondary>
-      </div>
+      <radio-group
+        [options]="sizeOptions"
+        [name]="'sizeControl'"
+        [orientation]="'horizontal'"
+        [(ngModel)]="size"
+      />
+      <br />
+
+      <slide-switch
+        [(ngModel)]="pill"
+        [label]="'pill'"
+      />
     </card-body>
   </card-container>
-  <card-container>
-    <card-header>Small Secondary Button</card-header>
-    <card-body>
-      <p>
-        This demonstrates the Small Secondary button.
-        <br />
-        &nbsp;&nbsp;[size]="'small'"
-        <br />
-        &nbsp;&nbsp;[pill]="true" (for the pill shaped button)
-      </p>
-      <div>
-        <button-secondary [size]="'small'" (click)="onSecondarySmallClick($event)">Small</button-secondary>
-        <button-secondary [size]="'small'" [pill]="true" (click)="onSecondarySmallClick($event)">Small</button-secondary>
-      </div>
-    </card-body>
-  </card-container>
+  <div>
+    <button-secondary [size]="size()" [pill]="pill()"
+                      (click)="onSecondaryClick($event)">Large</button-secondary>
+  </div>
 </jelly-container>
