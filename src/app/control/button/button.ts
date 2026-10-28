@@ -54,6 +54,7 @@ export type buttonSize = 'large' | 'medium' | 'small';
       :host(button-primary) button {
         background-color: var(--prb-color-primary-600);
         color: #ffffff;
+        box-shadow: var(--button-box-shadow);
 
         &:hover:not(:disabled) {
           background-color: var(--prb-color-primary-700);
@@ -65,6 +66,7 @@ export type buttonSize = 'large' | 'medium' | 'small';
         background-color: #e0e0e0;
         color: #333333;
         border-color: #cccccc;
+        box-shadow: var(--button-box-shadow);
 
         &:hover:not(:disabled) {
           background-color: #b0b0b0;

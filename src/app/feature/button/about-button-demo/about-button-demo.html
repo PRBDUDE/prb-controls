@@ -34,29 +34,29 @@
           [orientation]="'horizontal'"
           [(value)]="selectedSize" />
       </div>
-      <div>
-        <button-primary
-          [size]="selectedSize()"
-          [pill]="isPill()"
-          [disabled]="isDisabled()"
-          (click)="onClickPrimary($event)">
-          Primary
-        </button-primary>
-        <button-secondary
-          [size]="selectedSize()"
-          [pill]="isPill()"
-          [disabled]="isDisabled()"
-          (click)="onClickSecondary($event)">
-          Secondary
-        </button-secondary>
-        <button-tertiary
-          [size]="selectedSize()"
-          [pill]="isPill()"
-          [disabled]="isDisabled()"
-          (click)="onClickTertiary($event)">
-          Tertiary
-        </button-tertiary>
-      </div>
     </card-body>
   </card-container>
+  <div>
+    <button-primary
+      [size]="selectedSize()"
+      [pill]="isPill()"
+      [disabled]="isDisabled()"
+      (click)="onClickPrimary($event)">
+      Primary
+    </button-primary>
+    <button-secondary
+      [size]="selectedSize()"
+      [pill]="isPill()"
+      [disabled]="isDisabled()"
+      (click)="onClickSecondary($event)">
+      Secondary
+    </button-secondary>
+    <button-tertiary
+      [size]="selectedSize()"
+      [pill]="isPill()"
+      [disabled]="isDisabled()"
+      (click)="onClickTertiary($event)">
+      Tertiary
+    </button-tertiary>
+  </div>
 </jelly-container>
