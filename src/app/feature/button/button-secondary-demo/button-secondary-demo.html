@@ -35,16 +35,22 @@
         [orientation]="'horizontal'"
         [(ngModel)]="size"
       />
-      <br />
-
-      <slide-switch
-        [(ngModel)]="pill"
-        [label]="'Pill'"
-      />
+      <p>
+        <slide-switch
+          [(ngModel)]="pill"
+          [label]="'Pill'"
+        />
+      </p>
+      <p>
+        <slide-switch
+          [(ngModel)]="disabled"
+          [label]="'Disabled'"
+        />
+      </p>
     </card-body>
   </card-container>
   <div>
-    <button-secondary [size]="size()" [pill]="pill()"
+    <button-secondary [size]="size()" [pill]="pill()" [disabled]="disabled()"
                       (click)="onSecondaryClick($event)">Large</button-secondary>
   </div>
 </jelly-container>

@@ -16,6 +16,9 @@
         <html-attribute>[pill]</html-attribute><prb-string>="{{ pill() }}"</prb-string>
       </indent-1>
       <indent-1>
+        <html-attribute>[disabled]</html-attribute><prb-string>="{{ disabled() }}"</prb-string>
+      </indent-1>
+      <indent-1>
         <html-attribute>(click)</html-attribute><prb-string>="</prb-string><method-name>onPrimaryClick</method-name>()
         <prb-string>"</prb-string>
       </indent-1>
@@ -35,16 +38,22 @@
         [orientation]="'horizontal'"
         [(ngModel)]="size"
       />
-      <br />
-
-      <slide-switch
-        [(ngModel)]="pill"
-        [label]="'Pill'"
-      />
+      <p>
+        <slide-switch
+          [(ngModel)]="pill"
+          [label]="'Pill'"
+        />
+      </p>
+      <p>
+        <slide-switch
+          [(ngModel)]="disabled"
+          [label]="'Disabled'"
+        />
+      </p>
     </card-body>
   </card-container>
   <div>
-    <button-primary [size]="size()" [pill]="pill()"
+    <button-primary [size]="size()" [pill]="pill()" [disabled]="disabled()"
                     (click)="onPrimaryClick($event)">{{ size() | titlecase }}
     </button-primary>
   </div>

@@ -35,16 +35,22 @@
         [orientation]="'horizontal'"
         [(ngModel)]="size"
       />
-      <br />
-
-      <slide-switch
-        [(ngModel)]="pill"
-        [label]="'Pill'"
-      />
+      <p>
+        <slide-switch
+          [(ngModel)]="pill"
+          [label]="'Pill'"
+        />
+      </p>
+      <p>
+        <slide-switch
+          [(ngModel)]="disabled"
+          [label]="'Disabled'"
+        />
+      </p>
     </card-body>
   </card-container>
   <div>
-    <button-tertiary [size]="size()" [pill]="pill()"
+    <button-tertiary [size]="size()" [pill]="pill()" [disabled]="disabled()"
                      (click)="onTertiaryClick($event)">{{ size() | titlecase }}</button-tertiary>
   </div>
 </jelly-container>
