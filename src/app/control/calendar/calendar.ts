@@ -124,6 +124,25 @@ export class Calendar {
     return false;
   }
 
+  isStartRange(date: Date): boolean {
+    if (this.mode() !== 'range') return false;
+    const { startDate, endDate } = this.selectedRange();
+    console.log('date', date, 'startDate', startDate, 'endDate', endDate);
+    if (startDate && endDate && startDate.getUTCDate() != endDate.getUTCDate()) {
+      return date.getUTCDate() === startDate.getUTCDate();
+    }
+    return false;
+  }
+
+  isEndRange(date: Date): boolean {
+    if (this.mode() !== 'range') return false;
+    const { startDate, endDate } = this.selectedRange();
+    if (startDate && endDate && startDate.getUTCDate() != endDate.getUTCDate()) {
+      return date.getUTCDate() === endDate.getUTCDate();
+    }
+    return false;
+  }
+
   private isSameDay(d1: Date, d2: Date): boolean {
     return (
       d1.getFullYear() === d2.getFullYear() &&

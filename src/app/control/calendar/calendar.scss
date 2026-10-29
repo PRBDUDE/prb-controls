@@ -1,11 +1,11 @@
 .calendar-container {
   width: 320px;
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
+  background: var(--color-calendar-background);
+  border: 1px solid var(--color-calendar-border);
   border-radius: 12px;
   padding: 16px;
   font-family: system-ui, -apple-system, sans-serif;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: var(--calendar-box-shadow);
 }
 
 .calendar-header {
@@ -13,24 +13,25 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
-}
 
-.calendar-header h3 {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 600;
-}
+  h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+  }
 
-.calendar-header button {
-  background: transparent;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 4px 10px;
-  cursor: pointer;
-}
+  button {
+    background: transparent;
+    border: 1px solid var(--color-calendar-button-border);
+    border-radius: 6px;
+    padding: 4px 10px;
+    cursor: pointer;
+    box-shadow: var(--button-box-shadow);
 
-.calendar-header button:hover {
-  background: #f5f5f5;
+    &:hover {
+      background: var(--color-calendar-button-hover);
+    }
+  }
 }
 
 .calendar-grid {
@@ -42,7 +43,7 @@
 .weekdays {
   font-weight: 600;
   font-size: 0.8rem;
-  color: #666;
+  color: var(--color-calendar-week-days);
   margin-bottom: 8px;
 }
 
@@ -58,25 +59,33 @@
   justify-content: center;
   margin: 2px 0;
   transition: background 0.2s, color 0.2s;
-}
 
-.day-cell:hover {
-  background: #f0f0f0;
-}
+  &:hover {
+    background: var(--color-calendar-hover-background);
+  }
 
-.day-cell.dimmed {
-  color: #ccc;
-}
+  &.dimmed {
+    color: var(--color-calendar-dimmed-color);
+  }
 
-/* Selection and Range States */
-.day-cell.selected {
-  background: #2563eb;
-  color: #ffffff;
-  font-weight: 500;
-}
+  /* Selection and Range States */
+  &.selected {
+    background: var(--color-calendar-selected-background);
+    color: var(--color-calendar-selectd-background);
+    font-weight: 500;
+  }
 
-.day-cell.in-range {
-  background: #eff6ff;
-  color: #1e40af;
-  border-radius: 0; /* Creates continuous highlighted window effect */
+  &.in-range {
+    background: var(--color-calendar-in-range-background);
+    color: var(--color-calendar-in-range-color);
+    border-radius: 0; /* Creates continuous highlighted window effect */
+  }
+
+  &.start-range {
+    border-radius: 50% 0 0 50%;
+  }
+
+  &.end-range {
+    border-radius: 0 50% 50% 0;
+  }
 }

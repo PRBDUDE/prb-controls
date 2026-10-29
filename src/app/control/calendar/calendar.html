@@ -22,6 +22,8 @@
         [class.dimmed]="!cell.currentMonth"
         [class.selected]="isSelected(cell.date)"
         [class.in-range]="isInRange(cell.date)"
+        [class.start-range]="isStartRange(cell.date)"
+        [class.end-range]="isEndRange(cell.date)"
         (click)="selectDate(cell.date)"
       >
         {{ cell.date.getDate() }}
