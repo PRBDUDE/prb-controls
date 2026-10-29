@@ -1,0 +1,31 @@
+<div class="calendar-container">
+  <!-- Header Controls -->
+  <div class="calendar-header">
+    <button type="button" (click)="prevMonth()">&lt;</button>
+    <h3>{{ currentMonthName() }}</h3>
+    <button type="button" (click)="nextMonth()">&gt;</button>
+  </div>
+
+  <!-- Weekday Labels -->
+  <div class="calendar-grid weekdays">
+    @for (day of weekDays; track day) {
+      <div class="weekday-cell">{{ day }}</div>
+    }
+  </div>
+
+  <!-- Date Grid Days -->
+  <div class="calendar-grid days">
+    @for (cell of calendarGrid(); track cell.date.toISOString()) {
+      <button
+        type="button"
+        class="day-cell"
+        [class.dimmed]="!cell.currentMonth"
+        [class.selected]="isSelected(cell.date)"
+        [class.in-range]="isInRange(cell.date)"
+        (click)="selectDate(cell.date)"
+      >
+        {{ cell.date.getDate() }}
+      </button>
+    }
+  </div>
+</div>
