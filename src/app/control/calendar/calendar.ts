@@ -127,7 +127,6 @@ export class Calendar {
   isStartRange(date: Date): boolean {
     if (this.mode() !== 'range') return false;
     const { startDate, endDate } = this.selectedRange();
-    console.log('date', date, 'startDate', startDate, 'endDate', endDate);
     if (startDate && endDate && startDate.getUTCDate() != endDate.getUTCDate()) {
       return date.getUTCDate() === startDate.getUTCDate();
     }
