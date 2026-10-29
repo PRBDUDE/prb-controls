@@ -1,0 +1,70 @@
+<jelly-container>
+  Here are the AI prompts used to generate the calendar control.
+  <ul>
+    <li>
+      angular 22
+    </li>
+    <li>
+      create calendar control
+    </li>
+    <li>
+      allow single date
+    </li>
+    <li>
+      allow date range
+    </li>
+  </ul>
+  <card-container>
+    <card-header>Calendar</card-header>
+    <card-body>
+      <div>
+        <html-tag>&lt;</html-tag>
+        <user-tag>prb-calendar</user-tag>
+      </div>
+      @if (calendarMode() === 'single') {
+        <indent-1>
+          <html-attribute>[mode]</html-attribute><prb-string>="'single'"</prb-string>
+        </indent-1>
+        <indent-1>
+          <html-attribute>[(selectedDate)]</html-attribute>
+          <prb-string>="<prb-signal>singleDate</prb-signal>"</prb-string>
+        </indent-1>
+      }
+      @if (calendarMode() === 'range') {
+        <indent-1>
+          <html-attribute>[mode]</html-attribute><prb-string>="'range'"</prb-string>
+        </indent-1>
+        <indent-1>
+          <html-attribute>[(selectedRange)]</html-attribute>
+          <prb-string>="<prb-signal>dateRange</prb-signal>"</prb-string>
+        </indent-1>
+      }
+      <div><html-tag>/&gt;</html-tag></div>
+      <p>
+        <radio-group
+          [options]="modeOptions"
+          [name]="'calendarMode'"
+          [orientation]="'horizontal'"
+          [(ngModel)]="calendarMode"
+        />
+      </p>
+    </card-body>
+  </card-container>
+
+  @if (calendarMode() === 'single') {
+    <h1> Single Date Mode </h1>
+    <prb-calendar [mode]="'single'" [(selectedDate)]="singleDate" />
+    <p>
+      Selected Date: {{ singleDate() | date }}
+    </p>
+  }
+
+  @if (calendarMode() === 'range') {
+    <h1>Date Range Mode</h1>
+    <prb-calendar [mode]="'range'" [(selectedRange)]="dateRange" />
+    <p>
+      Selected Date Range - Start: {{ dateRange().startDate | date }}
+      End: {{ dateRange().endDate | date }}
+    </p>
+  }
+</jelly-container>

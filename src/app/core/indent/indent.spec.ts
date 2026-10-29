@@ -1,126 +1,185 @@
-import { Component, signal } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { describe, it, expect, beforeEach } from 'vitest';
 import { Indent } from './indent';
-import { provideHttpClient } from '@angular/common/http';
-import { provideHttpClientTesting } from '@angular/common/http/testing';
-
-// Wrapper component to test input changes dynamically
-@Component({
-  standalone: true,
-  imports: [Indent],
-  template: `
-    <prb-indent [level]="testLevel()">
-      <span data-testid="content">Test Content</span>
-    </prb-indent>
-  `,
-})
-class TestHostComponent {
-  testLevel = signal<1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9>(1);
-}
+import { describe, it, expect, beforeEach } from 'vitest';
+import { Component } from '@angular/core';
 
 describe('Indent Component', () => {
-  let fixture: ComponentFixture<TestHostComponent>;
-  let hostComponent: TestHostComponent;
+  let fixture: ComponentFixture<Indent>;
+  let component: Indent;
+  let compiled: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        TestHostComponent,
-        Indent
-      ],
-      providers: [
-        provideHttpClient(),
-        provideHttpClientTesting()
-      ]
+      imports: [Indent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(TestHostComponent);
-    hostComponent = fixture.componentInstance;
+    fixture = TestBed.createComponent(Indent);
+    component = fixture.componentInstance;
+    compiled = fixture.nativeElement as HTMLElement;
     fixture.detectChanges();
   });
 
-  it('should render content via ng-content', () => {
-    const projectedContent = fixture.nativeElement.querySelector('[data-testid="content"]');
-    expect(projectedContent).not.toBeNull();
-    expect(projectedContent?.textContent).toBe('Test Content');
+  it('should create the component', () => {
+    expect(component).toBeTruthy();
   });
 
-  it('should apply the default class "indent-1"', () => {
-    const divElement = fixture.nativeElement.querySelector('div');
-    console.log('classList: ',divElement.classList);
-    expect(divElement.classList.contains('indent-1')).toBe(true);
+  it('should render content projected via ng-content', async () => {
+    // Test with projected content
+    @Component({
+      template: `<indent-3>Indented Text Content</indent-3>`,
+      imports: [Indent],
+    })
+    class TestHostComponent {}
+
+    const hostFixture = TestBed.createComponent(TestHostComponent);
+    hostFixture.detectChanges();
+
+    const indentElement = hostFixture.nativeElement.querySelector('indent-3');
+    expect(indentElement).toBeTruthy();
+    expect(indentElement.textContent.trim()).toBe('Indented Text Content');
   });
 
-  it('should update the class when the input level=2', () => {
-    hostComponent.testLevel.set(2);
-    fixture.detectChanges();
+  it(`should apply correct margin-left for indent-1`, () => {
+    @Component({
+      template: `<indent-1></indent-1>`,
+      imports: [Indent],
+    })
+    class DynamicTestHost {}
 
-    const divElement = fixture.nativeElement.querySelector('div');
-    expect(divElement.classList.contains('indent-2')).toBe(true);
-    expect(divElement.classList.contains('indent-1')).toBe(false);
+    const hostFixture = TestBed.createComponent(DynamicTestHost);
+    hostFixture.detectChanges();
+
+    const element = hostFixture.nativeElement.querySelector(`indent-1`);
+    const computedStyle = window.getComputedStyle(element);
+
+    expect(computedStyle.marginLeft).toBe(`1rem`);
   });
 
-  it('should update the class when the input level=3', () => {
-    hostComponent.testLevel.set(3);
-    fixture.detectChanges();
+  it(`should apply correct margin-left for indent-2`, () => {
+    @Component({
+      template: `<indent-2></indent-2>`,
+      imports: [Indent],
+    })
+    class DynamicTestHost {}
 
-    const divElement = fixture.nativeElement.querySelector('div');
-    expect(divElement.classList.contains('indent-3')).toBe(true);
-    expect(divElement.classList.contains('indent-1')).toBe(false);
+    const hostFixture = TestBed.createComponent(DynamicTestHost);
+    hostFixture.detectChanges();
+
+    const element = hostFixture.nativeElement.querySelector(`indent-2`);
+    const computedStyle = window.getComputedStyle(element);
+
+    expect(computedStyle.marginLeft).toBe(`2rem`);
   });
 
-  it('should update the class when the input level=4', () => {
-    hostComponent.testLevel.set(4);
-    fixture.detectChanges();
+  it(`should apply correct margin-left for indent-3`, () => {
+    @Component({
+      template: `<indent-3></indent-3>`,
+      imports: [Indent],
+    })
+    class DynamicTestHost {}
 
-    const divElement = fixture.nativeElement.querySelector('div');
-    expect(divElement.classList.contains('indent-4')).toBe(true);
-    expect(divElement.classList.contains('indent-1')).toBe(false);
+    const hostFixture = TestBed.createComponent(DynamicTestHost);
+    hostFixture.detectChanges();
+
+    const element = hostFixture.nativeElement.querySelector(`indent-3`);
+    const computedStyle = window.getComputedStyle(element);
+
+    expect(computedStyle.marginLeft).toBe(`3rem`);
   });
 
-  it('should update the class when the input level=5', () => {
-    hostComponent.testLevel.set(5);
-    fixture.detectChanges();
+  it(`should apply correct margin-left for indent-4`, () => {
+    @Component({
+      template: `<indent-4></indent-4>`,
+      imports: [Indent],
+    })
+    class DynamicTestHost {}
 
-    const divElement = fixture.nativeElement.querySelector('div');
-    expect(divElement.classList.contains('indent-5')).toBe(true);
-    expect(divElement.classList.contains('indent-1')).toBe(false);
+    const hostFixture = TestBed.createComponent(DynamicTestHost);
+    hostFixture.detectChanges();
+
+    const element = hostFixture.nativeElement.querySelector(`indent-4`);
+    const computedStyle = window.getComputedStyle(element);
+
+    expect(computedStyle.marginLeft).toBe(`4rem`);
   });
 
-  it('should update the class when the input level=6', () => {
-    hostComponent.testLevel.set(6);
-    fixture.detectChanges();
+  it(`should apply correct margin-left for indent-5`, () => {
+    @Component({
+      template: `<indent-5></indent-5>`,
+      imports: [Indent],
+    })
+    class DynamicTestHost {}
 
-    const divElement = fixture.nativeElement.querySelector('div');
-    expect(divElement.classList.contains('indent-6')).toBe(true);
-    expect(divElement.classList.contains('indent-1')).toBe(false);
+    const hostFixture = TestBed.createComponent(DynamicTestHost);
+    hostFixture.detectChanges();
+
+    const element = hostFixture.nativeElement.querySelector(`indent-5`);
+    const computedStyle = window.getComputedStyle(element);
+
+    expect(computedStyle.marginLeft).toBe(`5rem`);
   });
 
-  it('should update the class when the input level=7', () => {
-    hostComponent.testLevel.set(7);
-    fixture.detectChanges();
+  it(`should apply correct margin-left for indent-6`, () => {
+    @Component({
+      template: `<indent-6></indent-6>`,
+      imports: [Indent],
+    })
+    class DynamicTestHost {}
 
-    const divElement = fixture.nativeElement.querySelector('div');
-    expect(divElement.classList.contains('indent-7')).toBe(true);
-    expect(divElement.classList.contains('indent-1')).toBe(false);
+    const hostFixture = TestBed.createComponent(DynamicTestHost);
+    hostFixture.detectChanges();
+
+    const element = hostFixture.nativeElement.querySelector(`indent-6`);
+    const computedStyle = window.getComputedStyle(element);
+
+    expect(computedStyle.marginLeft).toBe(`6rem`);
   });
 
-  it('should update the class when the input level=8', () => {
-    hostComponent.testLevel.set(8);
-    fixture.detectChanges();
+  it(`should apply correct margin-left for indent-7`, () => {
+    @Component({
+      template: `<indent-7></indent-7>`,
+      imports: [Indent],
+    })
+    class DynamicTestHost {}
 
-    const divElement = fixture.nativeElement.querySelector('div');
-    expect(divElement.classList.contains('indent-8')).toBe(true);
-    expect(divElement.classList.contains('indent-1')).toBe(false);
+    const hostFixture = TestBed.createComponent(DynamicTestHost);
+    hostFixture.detectChanges();
+
+    const element = hostFixture.nativeElement.querySelector(`indent-7`);
+    const computedStyle = window.getComputedStyle(element);
+
+    expect(computedStyle.marginLeft).toBe(`7rem`);
   });
 
-  it('should update the class when the input level=9', () => {
-    hostComponent.testLevel.set(9);
-    fixture.detectChanges();
+  it(`should apply correct margin-left for indent-8`, () => {
+    @Component({
+      template: `<indent-8></indent-8>`,
+      imports: [Indent],
+    })
+    class DynamicTestHost {}
 
-    const divElement = fixture.nativeElement.querySelector('div');
-    expect(divElement.classList.contains('indent-9')).toBe(true);
-    expect(divElement.classList.contains('indent-1')).toBe(false);
+    const hostFixture = TestBed.createComponent(DynamicTestHost);
+    hostFixture.detectChanges();
+
+    const element = hostFixture.nativeElement.querySelector(`indent-8`);
+    const computedStyle = window.getComputedStyle(element);
+
+    expect(computedStyle.marginLeft).toBe(`8rem`);
+  });
+
+  it(`should apply correct margin-left for indent-9`, () => {
+    @Component({
+      template: `<indent-9></indent-9>`,
+      imports: [Indent],
+    })
+    class DynamicTestHost {}
+
+    const hostFixture = TestBed.createComponent(DynamicTestHost);
+    hostFixture.detectChanges();
+
+    const element = hostFixture.nativeElement.querySelector(`indent-9`);
+    const computedStyle = window.getComputedStyle(element);
+
+    expect(computedStyle.marginLeft).toBe(`9rem`);
   });
 });

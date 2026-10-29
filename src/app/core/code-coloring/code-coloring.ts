@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   imports: [],
   selector:
-    'class-name, key-word, html-attribute, html-tag, method-name, number-value, prb-caution, prb-comment, prb-property, prb-string, user-tag',
+    'class-name, key-word, html-attribute, html-tag, method-name, number-value, prb-caution, prb-comment, prb-property, prb-signal, prb-string, user-tag',
   template: `<ng-content></ng-content>`,
   styles: [
     `
@@ -50,6 +50,10 @@ import { Component } from '@angular/core';
 
       :host(prb-property) {
         color: var(--color-property);
+      }
+
+      :host(prb-signal) {
+        color: var(--color-signal);
       }
 
       :host(prb-string) {
