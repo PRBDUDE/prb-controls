@@ -14,27 +14,85 @@
   <card-container>
     <card-header>Light Chaser</card-header>
     <card-body>
-      <div class="controls">
+      <div>
+        <html-tag>&lt;</html-tag>
+        <user-tag>prb-light-chaser</user-tag>
+      </div>
+      <indent-1>
+        <html-attribute>[active]</html-attribute><prb-string>="{{ isProcessing() }}"</prb-string>
+      </indent-1>
+      <indent-1>
+        <html-attribute>[count]</html-attribute><prb-string>="{{ count() }}"</prb-string>
+      </indent-1>
+      <indent-1>
+        <html-attribute>[speed]</html-attribute><prb-string>="{{ speed() }}"</prb-string>
+      </indent-1>
+      <indent-1>
+        <html-attribute>[size]</html-attribute><prb-string>="{{ size() }}"</prb-string>
+      </indent-1>
+      <indent-1>
+        <html-attribute>activeColor</html-attribute><prb-string>="{{ color() }}"</prb-string>
+        <html-tag>/&gt;</html-tag>
+      </indent-1>
+
+      <p>
         <slide-switch [(ngModel)]="isProcessing" [label]="'Processing'" />
+      </p>
+      <p>
+        <slide-switch [(ngModel)]="isShowActivity" [label]="'Show Activity'" />
+      </p>
+      <div class="controls">
+        Count
+        <radio-group
+          [options]="countOptions"
+          [name]="'countMode'"
+          [orientation]="'horizontal'"
+          [(ngModel)]="count" />
+        (Sample counts)
+      </div>
+      <div class="controls">
+        Speed
+        <radio-group
+          [options]="speedOptions"
+          [name]="'speedMode'"
+          [orientation]="'horizontal'"
+          [(ngModel)]="speed" />
+        (Sample speeds)
+      </div>
+      <div class="controls">
+        Size
+        <radio-group
+          [options]="sizeOptions"
+          [name]="'sizeMode'"
+          [orientation]="'horizontal'"
+          [(ngModel)]="size" />
+        (Sample sizes)
+      </div>
+      <div class="controls">
+        Color
+        <radio-group
+          [options]="colorOptions"
+          [name]="'colorMode'"
+          [orientation]="'horizontal'"
+          [(ngModel)]="color" />
+        (Sample colors)
       </div>
     </card-body>
   </card-container>
 
-  <h1>Activity Monitor</h1>
-
-  <hr>
-
-  <h1>Fast</h1>
-  <prb-light-chaser
-    [active]="isProcessing()"
-    [count]="10"
-    [speed]="90"
-    activeColor="#ff3366" />
-
-  <h1>Slow (display activity)</h1>
-  <prb-light-chaser
-    [active]="isProcessing()"
-    [count]="6"
-    [speed]="180"
-    [displayActivity]="true" />
+  <div class="controls">
+    <prb-light-chaser
+      [active]="isProcessing()"
+      [count]="count()"
+      [speed]="speed()"
+      [displayActivity]="isShowActivity()"
+      [size]="size()"
+      [activeColor]="color()" />
+    <prb-light-chaser
+      [active]="isProcessing()"
+      [count]="6"
+      [speed]="180"
+      [displayActivity]="true"
+      [size]="12" />
+  </div>
 </jelly-container>

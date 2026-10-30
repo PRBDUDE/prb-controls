@@ -37,17 +37,20 @@ import { CommonModule } from '@angular/common';
         border-radius: 8px;
         border: 1px solid rgba(255, 255, 255, 0.1);
         font-family: monospace;
+        box-shadow: var(--light-chaser-box-shadow);
       }
+
       .prb-lights-row {
         display: flex;
         gap: 8px;
       }
+
       .prb-light {
         border-radius: 50%;
-        transition:
-          background-color 0.15s ease,
-          box-shadow 0.15s ease;
+        transition: background-color 0.15s ease,
+        box-shadow 0.15s ease;
       }
+
       .prb-status-text {
         display: flex;
         justify-content: space-between;
@@ -55,6 +58,7 @@ import { CommonModule } from '@angular/common';
         font-size: 11px;
         color: #888;
       }
+
       .prb-speed-badge {
         background: rgba(255, 255, 255, 0.1);
         padding: 2px 6px;
