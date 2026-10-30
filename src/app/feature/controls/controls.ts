@@ -6,6 +6,7 @@ import { AiGeneratedDemo } from './ai-generated-demo/ai-generated-demo';
 import { SlideSwitchDemo } from './slide-switch-demo/slide-switch-demo';
 import { RadioGroupDemo } from './radio-group-demo/radio-group-demo';
 import { CalendarDemo } from './calendar-demo/calendar-demo';
+import { LightChaserDemo } from './light-chaser-demo/light-chaser-demo';
 
 @Component({
   imports: [
@@ -16,6 +17,7 @@ import { CalendarDemo } from './calendar-demo/calendar-demo';
     SlideSwitchDemo,
     RadioGroupDemo,
     CalendarDemo,
+    LightChaserDemo,
   ],
   selector: 'prb-controls',
   styleUrl: './controls.scss',

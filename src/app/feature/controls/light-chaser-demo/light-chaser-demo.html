@@ -1,0 +1,40 @@
+<jelly-container>
+  Here are the AI prompts used to generate the light-chaser control
+  <ul>
+    <li>
+      angular 22
+    </li>
+    <li>
+      create a light chaser control to show activity
+    </li>
+    <li>
+      using input signals
+    </li>
+  </ul>
+  <card-container>
+    <card-header>Light Chaser</card-header>
+    <card-body>
+      <div class="controls">
+        <slide-switch [(ngModel)]="isProcessing" [label]="'Processing'"/>
+      </div>
+    </card-body>
+  </card-container>
+
+  <h1>Activity Monitor</h1>
+
+  <hr>
+
+  <h1>Short & Fast (Processing Data)</h1>
+  <prb-light-chaser
+    [isActive]="isProcessing()"
+    [numLights]="10"
+    [cycleDuration]="2000">
+  </prb-light-chaser>
+
+  <h1>Long & Slow (Awaiting Response)</h1>
+  <prb-light-chaser
+    [isActive]="isProcessing()"
+    [numLights]="6"
+    [cycleDuration]="4000">
+  </prb-light-chaser>
+</jelly-container>

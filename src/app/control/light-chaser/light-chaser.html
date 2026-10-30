@@ -1,0 +1,11 @@
+<div class="light-chaser-container"
+     [attr.aria-label]="isActive() ? 'Activity LED Chaser Running' : 'Activity LED Chaser Stopped'" role="status">
+
+  @for (lightIndex of numLightsArray; track lightIndex) {
+    <div
+      class="light"
+      [ngClass]="{'active': lightIndex === activeLightIndex()}"
+    ></div>
+  }
+
+</div>
