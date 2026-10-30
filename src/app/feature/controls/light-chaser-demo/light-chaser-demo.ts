@@ -33,7 +33,7 @@ export class LightChaserDemo {
   protected count = model<number>(10);
   protected speed = model<number>(90);
   protected size = model<number>(20);
-  protected color = model<string>('#ff3366')
+  protected color = model<string>('#ff3366');
 
   countOptions: RadioOption[] = [
     { label: '5', value: 5 },
@@ -62,9 +62,9 @@ export class LightChaserDemo {
   ];
 
   colorOptions: RadioOption[] = [
-    { label: '#ff3366', value: '#ff3366' },
-    { label: '#00ffcc', value: '#00ffcc' },
-    { label: '#2233cc', value: '#2233cc' },
-    { label: '#aaaacc', value: '#aaaacc' },
+    { color: '#ff3366', value: '#ff3366' },
+    { color: '#00ffcc', value: '#00ffcc' },
+    { color: '#2233cc', value: '#2233cc' },
+    { color: '#aaaacc', value: '#aaaacc' },
   ];
 }

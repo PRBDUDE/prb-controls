@@ -40,6 +40,9 @@ export class RadioGroupDemo {
     { label: 'Option 2', value: 'option2' },
     { label: 'Option 3', value: 'option3' },
     { label: 'Option 4', value: 'option4' },
+    { color: '#ff0000', value: '#ff0000' },
+    { color: '#00ff00', value: '#00ff00' },
+    { color: '#0000ff', value: '#0000ff' },
   ];
   protected readonly JSON = JSON;
 }

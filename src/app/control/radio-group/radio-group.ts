@@ -2,7 +2,8 @@ import { Component, forwardRef, input, model } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 export interface RadioOption<T = any> {
-  label: string;
+  label?: string;
+  color?: string;
   value: T;
 }
 
@@ -27,7 +28,12 @@ export interface RadioOption<T = any> {
             (change)="onSelect(option.value)"
             (blur)="onTouched()"
           />
-          <span class="label-text">{{ option.label }}</span>
+          @if (option.label) {
+            <span>{{ option.label }}</span>
+          }
+          @if (option.color) {
+            <span class="radio-color" [style.background-color]="option.color"></span>
+          }
         </label>
       }
     </div>
@@ -62,6 +68,12 @@ export interface RadioOption<T = any> {
       .radio-label.disabled {
         cursor: not-allowed;
         opacity: 0.6;
+      }
+
+      .radio-color {
+        width: 25px;
+        height: 25px;
+        border-radius: 5px;
       }
 
       input[type='radio'] {

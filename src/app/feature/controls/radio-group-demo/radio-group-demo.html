@@ -17,13 +17,17 @@
       </p>
       <p>
         Here is the interface used to contain the name/value pairs.
+        Note that a "Label" or a "Color" can be used.
       </p>
       <div>
         <html-tag>export interface</html-tag> RadioOption&lt;<prb-comment>T</prb-comment> = <html-tag>any</html-tag>&gt;
         &#123;
       </div>
       <indent-1>
-        <html-attribute>label</html-attribute>: <html-tag>string;</html-tag>
+        <html-attribute>label</html-attribute>?: <html-tag>string;</html-tag>
+      </indent-1>
+      <indent-1>
+        <html-attribute>color</html-attribute>?: <html-tag>string;</html-tag>
       </indent-1>
       <indent-1>
         <html-attribute>value</html-attribute>: <prb-comment>T</prb-comment><html-tag>;</html-tag>
