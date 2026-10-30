@@ -15,7 +15,7 @@
     <card-header>Light Chaser</card-header>
     <card-body>
       <div class="controls">
-        <slide-switch [(ngModel)]="isProcessing" [label]="'Processing'"/>
+        <slide-switch [(ngModel)]="isProcessing" [label]="'Processing'" />
       </div>
     </card-body>
   </card-container>
@@ -26,15 +26,16 @@
 
   <h1>Short & Fast (Processing Data)</h1>
   <prb-light-chaser
-    [isActive]="isProcessing()"
-    [numLights]="10"
-    [cycleDuration]="2000">
+    [active]="isProcessing()"
+    [count]="10"
+    [speed]="90"
+    activeColor="#ff3366">
   </prb-light-chaser>
 
-  <h1>Long & Slow (Awaiting Response)</h1>
-  <prb-light-chaser
-    [isActive]="isProcessing()"
-    [numLights]="6"
-    [cycleDuration]="4000">
-  </prb-light-chaser>
+<!--  <h1>Long & Slow (Awaiting Response)</h1>-->
+<!--  <prb-light-chaser-->
+<!--    [isActive]="isProcessing()"-->
+<!--    [numLights]="6"-->
+<!--    [cycleDuration]="4000">-->
+<!--  </prb-light-chaser>-->
 </jelly-container>
