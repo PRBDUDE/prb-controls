@@ -54,7 +54,9 @@ export class LightChaserDemo {
 
   sizeOptions: RadioOption[] = [
     { label: '10', value: 10 },
+    { label: '12', value: 12 },
     { label: '15', value: 15 },
+    { label: '18', value: 18 },
     { label: '20', value: 20 },
     { label: '25', value: 25 },
   ];
@@ -63,5 +65,6 @@ export class LightChaserDemo {
     { label: '#ff3366', value: '#ff3366' },
     { label: '#00ffcc', value: '#00ffcc' },
     { label: '#2233cc', value: '#2233cc' },
+    { label: '#aaaacc', value: '#aaaacc' },
   ];
 }

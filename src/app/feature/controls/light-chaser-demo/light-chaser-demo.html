@@ -22,6 +22,9 @@
         <html-attribute>[active]</html-attribute><prb-string>="{{ isProcessing() }}"</prb-string>
       </indent-1>
       <indent-1>
+        <html-attribute>[displayActivity]</html-attribute><prb-string>="{{ isShowActivity() }}"</prb-string>
+      </indent-1>
+      <indent-1>
         <html-attribute>[count]</html-attribute><prb-string>="{{ count() }}"</prb-string>
       </indent-1>
       <indent-1>
@@ -36,10 +39,10 @@
       </indent-1>
 
       <p>
-        <slide-switch [(ngModel)]="isProcessing" [label]="'Processing'" />
+        <slide-switch [(ngModel)]="isProcessing" [label]="'Active'" />
       </p>
       <p>
-        <slide-switch [(ngModel)]="isShowActivity" [label]="'Show Activity'" />
+        <slide-switch [(ngModel)]="isShowActivity" [label]="'Display Activity'" />
       </p>
       <div class="controls">
         Count
@@ -88,11 +91,5 @@
       [displayActivity]="isShowActivity()"
       [size]="size()"
       [activeColor]="color()" />
-    <prb-light-chaser
-      [active]="isProcessing()"
-      [count]="6"
-      [speed]="180"
-      [displayActivity]="true"
-      [size]="12" />
   </div>
 </jelly-container>
