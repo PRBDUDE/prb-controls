@@ -42,7 +42,7 @@
 
 .weekdays {
   font-weight: 600;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--color-calendar-week-days);
   margin-bottom: 8px;
 }
@@ -53,14 +53,14 @@
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 2px 0;
   transition: background 0.2s, color 0.2s;
 
-  &:hover {
+  &:hover:not(.disabled) {
     background: var(--color-calendar-hover-background);
   }
 

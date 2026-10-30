@@ -1,0 +1,100 @@
+<jelly-container>
+  Here are the AI prompts used to generate the calendar control.
+  <ul>
+    <li>
+      angular 22
+    </li>
+    <li>
+      create calendar control
+    </li>
+    <li>
+      allow single date
+    </li>
+    <li>
+      allow date range
+    </li>
+    <li>
+      use signal input or model for two way input output
+    </li>
+    <li>
+      add flag to block out weekend selection and holidays
+    </li>
+  </ul>
+
+  <card-container>
+    <card-header>Calendar With Blocking</card-header>
+    <card-body>
+      <div>
+        <html-tag>&lt;</html-tag>
+        <user-tag>prb-calender-with-blocking</user-tag>
+      </div>
+      @if (calendarMode() === 'single') {
+        <indent-1>
+          <html-attribute>[mode]</html-attribute><prb-string>="'single'"</prb-string>
+        </indent-1>
+        <indent-1>
+          <html-attribute>[(selectedDate)]</html-attribute><prb-string>="'{{ selectedDate() | date }}'"</prb-string>
+        </indent-1>
+        <indent-1>
+          <html-attribute>[disableWeekends]</html-attribute><prb-string>="{{ disableWeekends() }}"</prb-string>
+        </indent-1>
+        <indent-1>
+          <html-attribute>[holidays]</html-attribute><prb-string>="['2026-11-26', '2026-11-27',
+          '2026-12-25']"</prb-string>
+        </indent-1>
+      }
+      @if (calendarMode() === 'range') {
+        <indent-1>
+          <html-attribute>[mode]</html-attribute><prb-string>="'range'"</prb-string>
+        </indent-1>
+        <indent-1>
+          <html-attribute>[(selectedRange)]</html-attribute><prb-string>
+          ="[{{ selectedDateRange()[0] | date }}, {{ selectedDateRange()[1] | date }}]"</prb-string>
+        </indent-1>
+        <indent-1>
+          <html-attribute>[disableWeekends]</html-attribute><prb-string>="{{ disableWeekends() }}"</prb-string>
+        </indent-1>
+        <indent-1>
+          <html-attribute>[holidays]</html-attribute><prb-string>="['2026-11-26', '2026-11-27',
+          '2026-12-25']"</prb-string>
+        </indent-1>
+      }
+      <div><html-tag>/&gt;</html-tag></div>
+      <p>
+        <slide-switch [(ngModel)]="disableWeekends" [label]="'Disable Weekends'" />
+      </p>
+      <p>
+        <radio-group
+          [options]="modeOptions"
+          [name]="'calendarWithBlocking'"
+          [orientation]="'horizontal'"
+          [(ngModel)]="calendarMode" />
+      </p>
+    </card-body>
+  </card-container>
+
+  @if (calendarMode() === 'single') {
+    <h1>Single Date Mode</h1>
+    <prb-calender-with-blocking
+      [mode]="'single'"
+      [(selectedDate)]="selectedDate"
+      [disableWeekends]="disableWeekends()"
+      [holidays]="['2026-11-26', '2026-11-27', '2026-12-25']" />
+    <p>
+      Selected Date:&nbsp;<span class="text-result">{{ selectedDate() | date }}</span>
+    </p>
+  }
+
+  @if (calendarMode() === 'range') {
+    <h1>Date Range Mode</h1>
+    <prb-calender-with-blocking
+      [mode]="'range'"
+      [(selectedRange)]="selectedDateRange"
+      [disableWeekends]="disableWeekends()"
+      [holidays]="['2026-11-26', '2026-11-27', '2026-12-25']" />
+    <p>
+      Selected Date Range - Start:&nbsp;<span class="text-result">{{ selectedDateRange()[0] | date }}</span>
+      &nbsp;&nbsp;End:&nbsp;<span class="text-result">{{ selectedDateRange()[1] | date }}</span>
+    </p>
+  }
+</jelly-container>

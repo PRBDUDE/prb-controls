@@ -1,0 +1,103 @@
+.calendar-container {
+  width: 320px;
+  background: var(--color-calendar-background);
+  border: 1px solid var(--color-calendar-border);
+  border-radius: 12px;
+  padding: 16px;
+  font-family: inherit;
+  box-shadow: var(--calendar-box-shadow);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+
+  h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  button {
+    background: transparent;
+    border: 1px solid var(--color-calendar-button-border);
+    border-radius: 6px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: var(--button-box-shadow);
+
+    &:hover {
+      background: var(--color-calendar-button-hover);
+    }
+  }
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+}
+
+.week-days {
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--color-calendar-week-days);
+  margin-bottom: 8px;
+}
+
+.day-cell {
+  aspect-ratio: 1;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2px 0;
+  transition: background 0.2s, color 0.2s;
+
+  &:hover:not(.disabled) {
+    background: var(--color-calendar-hover-background);
+  }
+
+  &.muted {
+    color: var(--color-calendar-dimmed-color);
+  }
+
+  &.disabled {
+    color: var(--color-calendar-dimmed-color);
+    background: var(--color-calendar-dimmed-background);
+    cursor: not-allowed;
+    text-decoration: line-through;
+  }
+
+  /* Selection and range styling states */
+  &.selected,
+  &.range-start,
+  &.range-end {
+    background: var(--color-calendar-selected-background);
+    color: var(--color-calendar-selectd-background);
+    border-radius: 50%;
+  }
+
+  &.in-range {
+    background: var(--color-calendar-in-range-background);
+    color: var(--color-calendar-in-range-color);
+    border-radius: 0;
+  }
+
+  &.start-range {
+    border-radius: 50% 0 0 50%;
+  }
+
+  &.end-range {
+    border-radius: 0 50% 50% 0;
+  }
+}
