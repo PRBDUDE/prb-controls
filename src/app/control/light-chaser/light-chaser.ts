@@ -19,10 +19,11 @@ import { CommonModule } from '@angular/common';
           ></div>
         }
       </div>
-      <div class="prb-status-text">
-        <span>Activity: <span class="prb-speed-badge">{{ active() ? 'Running' : 'Paused' }}</span></span>
-        <span class="prb-speed-badge">{{ speed() }}ms</span>
-      </div>
+      @if (displayActivity()) {
+        <div class="prb-status-text">
+          <span>Activity: <span class="prb-speed-badge">{{ active() ? 'Running' : 'Paused' }}</span></span>
+        </div>
+      }
     </div>
   `,
   styles: [
@@ -71,6 +72,7 @@ export class LightChaser implements OnDestroy {
   readonly inactiveColor = input<string>('#222222');
   readonly backgroundColor = input<string>('#111111');
   readonly size = input<number>(20); // Pixel size of each light
+  readonly displayActivity = input<boolean>(false);
 
   // Internal state tracking the lit index position
   private currentIndex = signal<number>(0);
