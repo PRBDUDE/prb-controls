@@ -77,7 +77,7 @@
     </card-body>
   </card-container>
 
-  <h4>Demo Radio Group</h4>
+  <h4 class="center">Demo Radio Group</h4>
   <div class="center">
     <radio-group
       [options]="selectionOptions"
@@ -87,6 +87,11 @@
       [disabled]="disabled()" />
   </div>
   <div class="center">
-    Result from slide-switch [{{ selectedOption() }}]
+    Result from slide-switch
+    @if (isColor(selectedOption())) {
+      <span class="color-swatch" [style.background-color]="selectedOption()"></span>
+    } @else {
+      <span class="text-result">{{ selectedOption() }}</span>
+    }
   </div>
 </jelly-container>

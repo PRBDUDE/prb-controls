@@ -27,7 +27,10 @@
         </indent-1>
         <indent-1>
           <html-attribute>[(selectedDate)]</html-attribute>
-          <prb-string>="<prb-signal>singleDate</prb-signal>"</prb-string>
+          <prb-string>="
+            <prb-signal>singleDate</prb-signal>
+            "
+          </prb-string>
         </indent-1>
       }
       @if (calendarMode() === 'range') {
@@ -36,7 +39,10 @@
         </indent-1>
         <indent-1>
           <html-attribute>[(selectedRange)]</html-attribute>
-          <prb-string>="<prb-signal>dateRange</prb-signal>"</prb-string>
+          <prb-string>="
+            <prb-signal>dateRange</prb-signal>
+            "
+          </prb-string>
         </indent-1>
       }
       <div><html-tag>/&gt;</html-tag></div>
@@ -55,7 +61,7 @@
     <h1> Single Date Mode </h1>
     <prb-calendar [mode]="'single'" [(selectedDate)]="singleDate" />
     <p>
-      Selected Date: {{ singleDate() | date }}
+      Selected Date:&nbsp;<span class="text-result">{{ singleDate() | date }}</span>
     </p>
   }
 
@@ -63,8 +69,8 @@
     <h1>Date Range Mode</h1>
     <prb-calendar [mode]="'range'" [(selectedRange)]="dateRange" />
     <p>
-      Selected Date Range - Start: {{ dateRange().startDate | date }}
-      End: {{ dateRange().endDate | date }}
+      Selected Date Range - Start:&nbsp;<span class="text-result">{{ dateRange().startDate | date }}</span>
+      &nbsp;&nbsp;End:&nbsp;<span class="text-result">{{ dateRange().endDate | date }}</span>
     </p>
   }
 </jelly-container>

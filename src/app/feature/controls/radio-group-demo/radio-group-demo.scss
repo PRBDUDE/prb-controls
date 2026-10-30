@@ -1,11 +1,9 @@
-div.center {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 1rem;
-  margin: 1rem;
-}
-
 h4 {
   text-align: center;
+}
+
+.color-swatch {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 5px;
 }

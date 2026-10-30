@@ -61,7 +61,7 @@
       </p>
     </card-body>
   </card-container>
-  <h4>Demo Slide Switch</h4>
+  <h4 class="center">Demo Slide Switch</h4>
   <div class="center">
     <slide-switch
       [(checked)]="demoPositionValue"
@@ -71,6 +71,7 @@
     />
   </div>
   <div class="center">
-    Result from slide-switch [{{ demoPositionValue() }}]
+    Result from slide-switch
+    <span class="text-result">{{ demoPositionValue() }}</span>
   </div>
 </jelly-container>

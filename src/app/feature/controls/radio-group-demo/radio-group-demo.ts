@@ -26,6 +26,7 @@ import { SlideSwitch } from '@control/slide-switch/slide-switch';
   templateUrl: './radio-group-demo.html',
 })
 export class RadioGroupDemo {
+  protected readonly JSON = JSON;
   protected selectedOption = model<string>();
   protected orientation = model<'vertical' | 'horizontal'>('horizontal');
   protected disabled = model<boolean>(false);
@@ -44,5 +45,8 @@ export class RadioGroupDemo {
     { color: '#00ff00', value: '#00ff00' },
     { color: '#0000ff', value: '#0000ff' },
   ];
-  protected readonly JSON = JSON;
+
+  isColor(value: string | undefined) {
+    return value?.startsWith('#');
+  }
 }

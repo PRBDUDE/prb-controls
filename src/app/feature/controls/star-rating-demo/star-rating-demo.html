@@ -66,7 +66,7 @@
     [disabled]="disabled()"
   />
   <p>
-    Selected Rating: {{ selectedRating }}
+    Selected Rating:&nbsp;<span class="text-result">{{ selectedRating }}</span>
   </p>
   <hr />
   <card-container>
@@ -124,6 +124,6 @@
     [disabled]="disabled2()"
     [maxStars]="10" />
   <p>
-    Selected Rating: {{ selectedRating2 }}
+    Selected Rating:&nbsp;<span class="text-result">{{ selectedRating2 }}</span>
   </p>
 </jelly-container>
