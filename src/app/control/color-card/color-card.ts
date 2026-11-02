@@ -1,4 +1,5 @@
 import { Component, input } from '@angular/core';
+import { hslToHex } from '@core/functions/hsl-to-rgb';
 
 @Component({
   imports: [],
@@ -17,5 +18,16 @@ export class ColorCard {
 
   getCssVarString(shade: number): string {
     return `var(--prb-color-${this.name()}-${shade})`;
+  }
+
+  getCssValue(shade: number) {
+    const rootStyles = getComputedStyle(document.documentElement);
+    return rootStyles.getPropertyValue(`--prb-color-${this.name()}-${shade}`).trim();
+  }
+
+  getRgb(shade: number) {
+    const hsl = this.getCssValue(shade).replace('hsl(', '').replace(')', '').replaceAll('%', '');
+    const hslValues = hsl.split(',');
+    return hslToHex(Number(hslValues[0]), Number(hslValues[1]), Number(hslValues[2]));
   }
 }

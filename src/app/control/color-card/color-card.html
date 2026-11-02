@@ -15,15 +15,28 @@
         @for (shade of shades; track shade) {
           <tr>
             <td>{{ shade }}</td>
-            <td><code>--prb-color-{{ name() }}-{{ shade }}</code></td>
             <td>
-              <div
-                class="color-swatch"
-                [style.background-color]="getCssVarString(shade)"
-              ></div>
+              <code>--prb-color-{{ name() }}-{{ shade }}</code>
+            </td>
+            <td>
+              <div class="color-swatch"
+                   [style.background-color]="getCssVarString(shade)">
+                <div class="overlay">
+                  <p>
+                    CSS Variable: --prb-color-{{ name() }}-{{ shade }}
+                  </p>
+                  <p>
+                    HSL: {{ getCssValue(shade) }}
+                  </p>
+                  <p>
+                    Hex RGB: {{ getRgb(shade) }}
+                  </p>
+                </div>
+              </div>
             </td>
           </tr>
         }
       </tbody>
-    </table>  </div>
+    </table>
+  </div>
 </div>
