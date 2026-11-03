@@ -27,52 +27,59 @@
   <card-container>
     <card-header>Calendar With Blocking</card-header>
     <card-body>
-      <div>
-        <html-tag>&lt;</html-tag>
-        <user-tag>prb-calender-with-blocking</user-tag>
+      <div class="split-block">
+        <div>
+          <div>
+            <html-tag>&lt;</html-tag>
+            <user-tag>prb-calender-with-blocking</user-tag>
+          </div>
+          @if (calendarMode() === 'single') {
+            <indent-1>
+              <html-attribute>[mode]</html-attribute><prb-string>="'single'"</prb-string>
+            </indent-1>
+            <indent-1>
+              <html-attribute>[(selectedDate)]</html-attribute><prb-string>="'{{ selectedDate() | date }}'"</prb-string>
+            </indent-1>
+            <indent-1>
+              <html-attribute>[disableWeekends]</html-attribute><prb-string>="{{ disableWeekends() }}"</prb-string>
+            </indent-1>
+            <indent-1>
+              <html-attribute>[holidays]</html-attribute><prb-string>="['2026-11-26', '2026-11-27',
+              '2026-12-25']"</prb-string>
+            </indent-1>
+          }
+          @if (calendarMode() === 'range') {
+            <indent-1>
+              <html-attribute>[mode]</html-attribute><prb-string>="'range'"</prb-string>
+            </indent-1>
+            <indent-1>
+              <html-attribute>[(selectedRange)]</html-attribute><prb-string>
+              ="[{{ selectedDateRange()[0] | date }}, {{ selectedDateRange()[1] | date }}]"</prb-string>
+            </indent-1>
+            <indent-1>
+              <html-attribute>[disableWeekends]</html-attribute><prb-string>="{{ disableWeekends() }}"</prb-string>
+            </indent-1>
+            <indent-1>
+              <html-attribute>[holidays]</html-attribute><prb-string>="['2026-11-26', '2026-11-27',
+              '2026-12-25']"</prb-string>
+            </indent-1>
+          }
+          <div><html-tag>/&gt;</html-tag></div>
+        </div>
+        <div>
+          <p>
+            <slide-switch [(ngModel)]="disableWeekends" [label]="'Disable Weekends'" />
+          </p>
+          <div class="prompt-line">
+            Calendar Mode
+            <radio-group
+              [options]="modeOptions"
+              [name]="'calendarWithBlocking'"
+              [orientation]="'horizontal'"
+              [(ngModel)]="calendarMode" />
+          </div>
+        </div>
       </div>
-      @if (calendarMode() === 'single') {
-        <indent-1>
-          <html-attribute>[mode]</html-attribute><prb-string>="'single'"</prb-string>
-        </indent-1>
-        <indent-1>
-          <html-attribute>[(selectedDate)]</html-attribute><prb-string>="'{{ selectedDate() | date }}'"</prb-string>
-        </indent-1>
-        <indent-1>
-          <html-attribute>[disableWeekends]</html-attribute><prb-string>="{{ disableWeekends() }}"</prb-string>
-        </indent-1>
-        <indent-1>
-          <html-attribute>[holidays]</html-attribute><prb-string>="['2026-11-26', '2026-11-27',
-          '2026-12-25']"</prb-string>
-        </indent-1>
-      }
-      @if (calendarMode() === 'range') {
-        <indent-1>
-          <html-attribute>[mode]</html-attribute><prb-string>="'range'"</prb-string>
-        </indent-1>
-        <indent-1>
-          <html-attribute>[(selectedRange)]</html-attribute><prb-string>
-          ="[{{ selectedDateRange()[0] | date }}, {{ selectedDateRange()[1] | date }}]"</prb-string>
-        </indent-1>
-        <indent-1>
-          <html-attribute>[disableWeekends]</html-attribute><prb-string>="{{ disableWeekends() }}"</prb-string>
-        </indent-1>
-        <indent-1>
-          <html-attribute>[holidays]</html-attribute><prb-string>="['2026-11-26', '2026-11-27',
-          '2026-12-25']"</prb-string>
-        </indent-1>
-      }
-      <div><html-tag>/&gt;</html-tag></div>
-      <p>
-        <slide-switch [(ngModel)]="disableWeekends" [label]="'Disable Weekends'" />
-      </p>
-      <p>
-        <radio-group
-          [options]="modeOptions"
-          [name]="'calendarWithBlocking'"
-          [orientation]="'horizontal'"
-          [(ngModel)]="calendarMode" />
-      </p>
     </card-body>
   </card-container>
 
