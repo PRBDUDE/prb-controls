@@ -8,6 +8,7 @@ import { Indent } from '@core/indent';
 import { RadioGroup, RadioOption } from '@control/radio-group/radio-group';
 import { FormsModule } from '@angular/forms';
 import { SlideSwitch } from '@control/slide-switch/slide-switch';
+import { Button } from '@control/button/button';
 
 @Component({
   imports: [
@@ -20,6 +21,7 @@ import { SlideSwitch } from '@control/slide-switch/slide-switch';
     RadioGroup,
     FormsModule,
     SlideSwitch,
+    Button,
   ],
   selector: 'prb-radio-group-demo',
   styleUrl: './radio-group-demo.scss',
@@ -27,7 +29,7 @@ import { SlideSwitch } from '@control/slide-switch/slide-switch';
 })
 export class RadioGroupDemo {
   protected readonly JSON = JSON;
-  protected selectedOption = model<string>();
+  protected selectedOption = model<string | null>();
   protected orientation = model<'vertical' | 'horizontal'>('horizontal');
   protected disabled = model<boolean>(false);
 
@@ -46,7 +48,15 @@ export class RadioGroupDemo {
     { color: '#0000ff', value: '#0000ff' },
   ];
 
-  isColor(value: string | undefined) {
+  isColor(value: string | null | undefined) {
     return value?.startsWith('#');
+  }
+
+  protected isDisabled() {
+    return this.selectedOption() === undefined || this.selectedOption() === null;
+  }
+
+  protected clearOption() {
+    this.selectedOption.set(null);
   }
 }

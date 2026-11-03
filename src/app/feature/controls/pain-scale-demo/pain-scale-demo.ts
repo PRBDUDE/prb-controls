@@ -8,6 +8,7 @@ import { CodeColoring } from '@core/code-coloring';
 import { Indent } from '@core/indent';
 import { SlideSwitch } from '@control/slide-switch/slide-switch';
 import { FormsModule } from '@angular/forms';
+import { Button } from '@control/button/button';
 
 @Component({
   imports: [
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     Indent,
     SlideSwitch,
     FormsModule,
+    Button,
   ],
   selector: 'prb-pain-scale-demo',
   styleUrl: './pain-scale-demo.scss',
@@ -28,4 +30,12 @@ import { FormsModule } from '@angular/forms';
 export class PainScaleDemo {
   protected selectedPainLevel = 0;
   protected disabled = model<boolean>(false);
+
+  protected isDisabled() {
+    return this.selectedPainLevel === 0;
+  }
+
+  protected clearPainLevel() {
+    this.selectedPainLevel = 0;
+  }
 }

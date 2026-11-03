@@ -49,9 +49,20 @@
           </div>
         </div>
         <div>
-          <slide-switch
-            [(ngModel)]="disabled"
-            [label]="'Disabled'" />
+          <div>
+            <slide-switch
+              [(ngModel)]="disabled"
+              [label]="'Disabled'" />
+          </div>
+          <p>
+            <button-secondary
+              [size]="'small'"
+              [pill]="true"
+              [disabled]="isDisabled()"
+              (click)="clearPainLevel()"
+            >Clear
+            </button-secondary>
+          </p>
         </div>
       </div>
     </card-body>

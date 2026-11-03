@@ -40,43 +40,55 @@
       </div>
 
       <br />
-      <div>
-        <html-tag>&lt;</html-tag>
-        <user-tag>radio-group</user-tag>
+      <div class="split-block">
+        <div>
+          <div>
+            <html-tag>&lt;</html-tag>
+            <user-tag>radio-group</user-tag>
+          </div>
+          <indent-1>
+            <html-attribute>[options]</html-attribute>
+            <prb-string>="'{{ JSON.stringify(selectionOptions) }}'"</prb-string>
+          </indent-1>
+          <indent-1>
+            <html-attribute>[name]</html-attribute><prb-string>="'options'"</prb-string>
+          </indent-1>
+          <indent-1>
+            <html-attribute>[orientation]</html-attribute><prb-string>="'{{ orientation() }}'"</prb-string>
+          </indent-1>
+          <indent-1>
+            <html-attribute>[(ngModel)]</html-attribute><prb-string>="'{{ selectedOption() }}'"</prb-string>
+          </indent-1>
+          <indent-1>
+            <html-attribute>[disabled]</html-attribute><prb-string>="{{ disabled() }}"</prb-string>
+          </indent-1>
+          <div><html-tag>/&gt;</html-tag></div>
+        </div>
+
+        <div>
+          <div class="prompt-line">
+            Orientation
+            <radio-group
+              [options]="orientationOptions"
+              [name]="'orientationControl'"
+              [orientation]="'horizontal'"
+              [(ngModel)]="orientation"
+            />
+          </div>
+          <slide-switch
+            [(ngModel)]="disabled"
+            [label]="'Disabled'" />
+          <p>
+            <button-secondary
+              [size]="'small'"
+              [pill]="true"
+              [disabled]="isDisabled()"
+              (click)="clearOption()"
+            >Clear
+            </button-secondary>
+          </p>
+        </div>
       </div>
-      <indent-1>
-        <html-attribute>[options]</html-attribute><prb-string>="'{{ JSON.stringify(selectionOptions) }}'"</prb-string>
-      </indent-1>
-      <indent-1>
-        <html-attribute>[name]</html-attribute><prb-string>="'options'"</prb-string>
-      </indent-1>
-      <indent-1>
-        <html-attribute>[orientation]</html-attribute><prb-string>="'{{ orientation() }}'"</prb-string>
-      </indent-1>
-      <indent-1>
-        <html-attribute>[(ngModel)]</html-attribute><prb-string>="'{{ selectedOption() }}'"</prb-string>
-      </indent-1>
-      <indent-1>
-        <html-attribute>[disabled]</html-attribute><prb-string>="{{ disabled() }}"</prb-string>
-      </indent-1>
-      <div><html-tag>/&gt;</html-tag></div>
-
-      <p>
-        The control can be oriented vertical or horizontal.
-      </p>
-      <radio-group
-        [options]="orientationOptions"
-        [name]="'orientationControl'"
-        [orientation]="'horizontal'"
-        [(ngModel)]="orientation"
-      />
-
-      <p>
-        The control can be disabled.
-      </p>
-      <slide-switch
-        [(ngModel)]="disabled"
-        [label]="'Disabled'" />
     </card-body>
   </card-container>
 
