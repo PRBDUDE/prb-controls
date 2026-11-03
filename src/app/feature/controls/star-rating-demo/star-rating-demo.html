@@ -23,113 +23,76 @@
     </ul>
   </details>
   <card-container>
-    <card-header>HTML - Control usage</card-header>
+    <card-header>Star Rating</card-header>
     <card-body>
-      <div>
-        <html-tag>&lt;</html-tag>
-        <user-tag>prb-star-rating</user-tag>
+      <div class="split-block">
+        <div>
+          <div>
+            <html-tag>&lt;</html-tag>
+            <user-tag>prb-star-rating</user-tag>
+          </div>
+          <indent-1>
+            <html-attribute>[(rating)]</html-attribute>
+            <html-tag>=</html-tag>
+            <html-attribute>"'{{ selectedRating }}'"
+            </html-attribute>
+          </indent-1>
+          @if (selectedStarCount() !== -1) {
+            <indent-1>
+              <html-attribute>[maxStars]</html-attribute>
+              <html-tag>=</html-tag>
+              <html-attribute>"'{{ selectedStarCount() }}'"</html-attribute>
+            </indent-1>
+          }
+          <indent-1>
+            <html-attribute>[disabled]</html-attribute>
+            <html-tag>=</html-tag>
+            <html-attribute>"{{ disabled() }}"</html-attribute>
+          </indent-1>
+          <div>
+            <html-tag>/&gt;</html-tag>
+          </div>
+        </div>
+        <div>
+          <div class="prompt-line">
+            Star Count
+            <radio-group
+              [options]="starCountOptions"
+              [name]="'starCountMode'"
+              [orientation]="'horizontal'"
+              [(ngModel)]="selectedStarCount" />
+          </div>
+          <slide-switch
+            [(ngModel)]="disabled"
+            [label]="'Disabled'" />
+          <p>
+          <button-secondary
+            [size]="'small'"
+            [pill]="true"
+            [disabled]="isDisabled()"
+            (click)="clearStarRating()"
+          >Clear
+          </button-secondary>
+          </p>
+        </div>
       </div>
-      <indent-1>
-        <html-attribute>[(rating)]</html-attribute>
-        <html-tag>=</html-tag>
-        <html-attribute>"'{{ selectedRating }}'"
-        </html-attribute>
-      </indent-1>
-      <indent-1>
-        <html-attribute>[disabled]</html-attribute>
-        <html-tag>=</html-tag>
-        <html-attribute>"'{{ disabled() }}'"</html-attribute>
-      </indent-1>
-      <div>
-        <html-tag>/&gt;</html-tag>
-      </div>
-      <p>
-        <html-attribute>rating</html-attribute>
-        : is a two way input/out property showing the rating in a numeric value.
-      </p>
-      <p>
-        <html-attribute>maxStars</html-attribute>
-        : is a numeric input telling the control how many stars to display.
-        Default value is 5.
-      </p>
-      <p>
-        <html-attribute>disabled</html-attribute>
-        : is a boolean
-      </p>
-      <p>
-        The control can be disabled.
-      </p>
-      <slide-switch
-        [(ngModel)]="disabled"
-        [label]="'Disabled'" />
     </card-body>
   </card-container>
   <p>
-    maxStars is not set
+    maxStars is set to {{ selectedStarCount() }}
   </p>
-  <prb-star-rating
-    [(rating)]=selectedRating
-    [disabled]="disabled()"
-  />
+  @if (selectedStarCount() === -1) {
+    <prb-star-rating
+      [(rating)]=selectedRating
+      [disabled]="disabled()" />
+
+  } @else {
+    <prb-star-rating
+      [(rating)]=selectedRating
+      [disabled]="disabled()"
+      [maxStars]="selectedStarCount()" />
+  }
   <p>
     Selected Rating:&nbsp;<span class="text-result">{{ selectedRating }}</span>
-  </p>
-  <hr />
-  <card-container>
-    <card-header>HTML - Control usage</card-header>
-    <card-body>
-      <div>
-        <html-tag>&lt;</html-tag>
-        <user-tag>prb-star-rating</user-tag>
-      </div>
-      <indent-1>
-        <html-attribute>[(rating)]</html-attribute>
-        <html-tag>=</html-tag>
-        <html-attribute>"'{{ selectedRating2 }}'"
-        </html-attribute>
-      </indent-1>
-      <indent-1>
-        <html-attribute>[maxStars]</html-attribute>
-        <html-tag>=</html-tag>
-        <html-attribute>"'10'"</html-attribute>
-      </indent-1>
-      <indent-1>
-        <html-attribute>[disabled]</html-attribute>
-        <html-tag>=</html-tag>
-        <html-attribute>"{{ disabled2() }}"</html-attribute>
-      </indent-1>
-      <div>
-        <html-tag>/&gt;</html-tag>
-      </div>
-      <p>
-        <html-attribute>rating</html-attribute>
-        : is a two way input/out property showing the rating in a numeric value.
-      </p>
-      <p>
-        <html-attribute>maxStars</html-attribute>
-        : is a numeric input telling the control how many stars to display.
-        Default value is 5.
-      </p>
-      <p>
-        <html-attribute>disabled</html-attribute>
-        : is a boolean
-      </p>
-      <p>
-        The control can be disabled.
-      </p>
-      <slide-switch
-        [(ngModel)]="disabled2"
-        [label]="'Disabled'" />
-    </card-body>
-  </card-container>
-  <p>
-    maxStars is set to 10
-  </p>
-  <prb-star-rating
-    [(rating)]=selectedRating2
-    [disabled]="disabled2()"
-    [maxStars]="10" />
-  <p>
-    Selected Rating:&nbsp;<span class="text-result">{{ selectedRating2 }}</span>
   </p>
 </jelly-container>
