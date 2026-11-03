@@ -60,8 +60,7 @@
               <html-attribute>[disableWeekends]</html-attribute><prb-string>="{{ disableWeekends() }}"</prb-string>
             </indent-1>
             <indent-1>
-              <html-attribute>[holidays]</html-attribute><prb-string>="['2026-11-26', '2026-11-27',
-              '2026-12-25']"</prb-string>
+              <html-attribute>[holidays]</html-attribute><prb-string>="{{ holidays }}"</prb-string>
             </indent-1>
           }
           <div><html-tag>/&gt;</html-tag></div>
@@ -95,7 +94,7 @@
       [mode]="'single'"
       [(selectedDate)]="selectedDate"
       [disableWeekends]="disableWeekends()"
-      [holidays]="['2026-11-26', '2026-11-27', '2026-12-25']" />
+      [holidays]="holidays" />
     <p>
       Selected Date:&nbsp;<span class="text-result">{{ selectedDate() | date }}</span>
     </p>
@@ -107,7 +106,7 @@
       [mode]="'range'"
       [(selectedRange)]="selectedDateRange"
       [disableWeekends]="disableWeekends()"
-      [holidays]="['2026-11-26', '2026-11-27', '2026-12-25']" />
+      [holidays]="holidays" />
     <p>
       Selected Date Range - Start:&nbsp;<span class="text-result">{{ selectedDateRange()[0] | date }}</span>
       &nbsp;&nbsp;End:&nbsp;<span class="text-result">{{ selectedDateRange()[1] | date }}</span>

@@ -36,7 +36,7 @@ export class CalendarWithBlockingDemo {
   protected selectedDate = model<Date | null>(null);
   protected selectedDateRange = model<[Date | null, Date | null]>([null, null]);
   protected disableWeekends = model<boolean>(true);
-  protected holidays: string[] = []
+  protected holidays: string[] = ['2026-11-26', '2026-11-27', '2026-12-25'];
 
   modeOptions: RadioOption[] = [
     { label: 'Single', value: 'single' },
