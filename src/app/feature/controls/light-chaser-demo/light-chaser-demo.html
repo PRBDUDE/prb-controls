@@ -17,71 +17,77 @@
   <card-container>
     <card-header>Light Chaser</card-header>
     <card-body>
-      <div>
-        <html-tag>&lt;</html-tag>
-        <user-tag>prb-light-chaser</user-tag>
-      </div>
-      <indent-1>
-        <html-attribute>[active]</html-attribute><prb-string>="{{ isProcessing() }}"</prb-string>
-      </indent-1>
-      <indent-1>
-        <html-attribute>[displayActivity]</html-attribute><prb-string>="{{ isShowActivity() }}"</prb-string>
-      </indent-1>
-      <indent-1>
-        <html-attribute>[count]</html-attribute><prb-string>="{{ count() }}"</prb-string>
-      </indent-1>
-      <indent-1>
-        <html-attribute>[speed]</html-attribute><prb-string>="{{ speed() }}"</prb-string>
-      </indent-1>
-      <indent-1>
-        <html-attribute>[size]</html-attribute><prb-string>="{{ size() }}"</prb-string>
-      </indent-1>
-      <indent-1>
-        <html-attribute>activeColor</html-attribute><prb-string>="{{ color() }}"</prb-string>
-        <html-tag>/&gt;</html-tag>
-      </indent-1>
+      <div class="split-block">
+        <div>
+          <div>
+            <html-tag>&lt;</html-tag>
+            <user-tag>prb-light-chaser</user-tag>
+          </div>
+          <indent-1>
+            <html-attribute>[active]</html-attribute><prb-string>="{{ isProcessing() }}"</prb-string>
+          </indent-1>
+          <indent-1>
+            <html-attribute>[displayActivity]</html-attribute><prb-string>="{{ isShowActivity() }}"</prb-string>
+          </indent-1>
+          <indent-1>
+            <html-attribute>[count]</html-attribute><prb-string>="{{ count() }}"</prb-string>
+          </indent-1>
+          <indent-1>
+            <html-attribute>[speed]</html-attribute><prb-string>="{{ speed() }}"</prb-string>
+          </indent-1>
+          <indent-1>
+            <html-attribute>[size]</html-attribute><prb-string>="{{ size() }}"</prb-string>
+          </indent-1>
+          <indent-1>
+            <html-attribute>activeColor</html-attribute><prb-string>="{{ color() }}"</prb-string>
+            <html-tag>/&gt;</html-tag>
+          </indent-1>
+        </div>
 
-      <p>
-        <slide-switch [(ngModel)]="isProcessing" [label]="'Active'" />
-      </p>
-      <p>
-        <slide-switch [(ngModel)]="isShowActivity" [label]="'Display Activity'" />
-      </p>
-      <div class="controls">
-        Count
-        <radio-group
-          [options]="countOptions"
-          [name]="'countMode'"
-          [orientation]="'horizontal'"
-          [(ngModel)]="count" />
-        (Sample counts)
-      </div>
-      <div class="controls">
-        Speed
-        <radio-group
-          [options]="speedOptions"
-          [name]="'speedMode'"
-          [orientation]="'horizontal'"
-          [(ngModel)]="speed" />
-        (Sample speeds)
-      </div>
-      <div class="controls">
-        Size
-        <radio-group
-          [options]="sizeOptions"
-          [name]="'sizeMode'"
-          [orientation]="'horizontal'"
-          [(ngModel)]="size" />
-        (Sample sizes)
-      </div>
-      <div class="controls">
-        Color
-        <radio-group
-          [options]="colorOptions"
-          [name]="'colorMode'"
-          [orientation]="'horizontal'"
-          [(ngModel)]="color" />
-        (Sample colors)
+        <div>
+          <p>
+            <slide-switch [(ngModel)]="isProcessing" [label]="'Active'" />
+          </p>
+          <p>
+            <slide-switch [(ngModel)]="isShowActivity" [label]="'Display Activity'" />
+          </p>
+          <div class="prompt-line">
+            Count
+            <radio-group
+              [options]="countOptions"
+              [name]="'countMode'"
+              [orientation]="'horizontal'"
+              [(ngModel)]="count" />
+            (Sample counts)
+          </div>
+          <div class="prompt-line">
+            Speed
+            <radio-group
+              [options]="speedOptions"
+              [name]="'speedMode'"
+              [orientation]="'horizontal'"
+              [(ngModel)]="speed" />
+            (Sample speeds)
+          </div>
+          <div class="prompt-line">
+            Size
+            <radio-group
+              [options]="sizeOptions"
+              [name]="'sizeMode'"
+              [orientation]="'horizontal'"
+              [(ngModel)]="size" />
+            (Sample sizes)
+          </div>
+          <div class="prompt-line">
+            Color
+            <radio-group
+              [options]="colorOptions"
+              [name]="'colorMode'"
+              [orientation]="'horizontal'"
+              [(ngModel)]="color" />
+            (Sample colors)
+          </div>
+        </div>
       </div>
     </card-body>
   </card-container>
