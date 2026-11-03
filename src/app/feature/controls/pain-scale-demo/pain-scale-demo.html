@@ -23,34 +23,37 @@
     <card-header>Pain Scale</card-header>
     <card-body>
       <div>
-        <html-tag>&lt;</html-tag>
-        <user-tag>prb-pain-scale-selector</user-tag>
-      </div>
-      <indent-1>
-        <html-attribute>[(selectedPainLevel)]</html-attribute>
-        <html-tag>=</html-tag><prb-string>"'{{ selectedPainLevel }}'"</prb-string>
-      </indent-1>
-      <indent-1>
-        <html-attribute>[disabled]</html-attribute>
-        <html-tag>=</html-tag>
-        <prb-string>"{{ disabled() }}"</prb-string>
-      </indent-1>
-      <div>
-        <html-tag>/&gt;</html-tag>
-      </div>
-      <p>
         <html-attribute>selectedPainLevel</html-attribute>: is a two way input/out property showing the rating in a
         numeric value.
-      </p>
+      </div>
       <p>
         <html-attribute>disabled</html-attribute>: is a boolean
       </p>
-      <p>
-        The control can be disabled.
-      </p>
-      <slide-switch
-        [(ngModel)]="disabled"
-        [label]="'Disabled'" />
+      <div class="split-block">
+        <div>
+          <div>
+            <html-tag>&lt;</html-tag>
+            <user-tag>prb-pain-scale-selector</user-tag>
+          </div>
+          <indent-1>
+            <html-attribute>[(selectedPainLevel)]</html-attribute>
+            <html-tag>=</html-tag><prb-string>"'{{ selectedPainLevel }}'"</prb-string>
+          </indent-1>
+          <indent-1>
+            <html-attribute>[disabled]</html-attribute>
+            <html-tag>=</html-tag>
+            <prb-string>"{{ disabled() }}"</prb-string>
+          </indent-1>
+          <div>
+            <html-tag>/&gt;</html-tag>
+          </div>
+        </div>
+        <div>
+          <slide-switch
+            [(ngModel)]="disabled"
+            [label]="'Disabled'" />
+        </div>
+      </div>
     </card-body>
   </card-container>
 
