@@ -16,52 +16,44 @@
         The slide-switch is a boolean switch like the check box.
         You can click on the label as well as the control to change the state of the control.
       </p>
-      <slide-switch [(checked)]="demoValue" [label]="'Label'" />
-      <p>
-        Result from slide-switch [{{ demoValue() }}]
-      </p>
-    </card-body>
-  </card-container>
-  <card-container>
-    <card-header>Options</card-header>
-    <card-body>
-      <div>
-        <html-tag>&lt;</html-tag>
-        <user-tag>slide-switch</user-tag>
+      <div class="split-block">
+        <div>
+          <div>
+            <html-tag>&lt;</html-tag>
+            <user-tag>slide-switch</user-tag>
+          </div>
+          <indent-1>
+            <html-attribute>[(checked)]</html-attribute><prb-string>="demoPositionValue"</prb-string>
+          </indent-1>
+          <indent-1>
+            <html-attribute>[label]</html-attribute><prb-string>="'Label'"</prb-string>
+          </indent-1>
+          <indent-1>
+            <html-attribute>[labelPosition]</html-attribute><prb-string>="'{{ selectedLabelPosition() }}'"</prb-string>
+          </indent-1>
+          <indent-1>
+            <html-attribute>[disabled]</html-attribute><prb-string>="{{ disabled() }}"</prb-string>
+          </indent-1>
+          <div>
+            <html-tag>/&gt;</html-tag>
+          </div>
+        </div>
+        <div>
+          <div class="prompt-line">
+            Label Position
+            <radio-group
+              [options]="labelPosition"
+              name="size"
+              [orientation]="'horizontal'"
+              [(value)]="selectedLabelPosition" />
+          </div>
+          <p>
+            <slide-switch
+              [(checked)]="disabled"
+              [label]="'Disabled'" />
+          </p>
+        </div>
       </div>
-      <indent-1>
-        <html-attribute>[(checked)]</html-attribute><prb-string>="demoPositionValue"</prb-string>
-      </indent-1>
-      <indent-1>
-        <html-attribute>[label]</html-attribute><prb-string>="'Label'"</prb-string>
-      </indent-1>
-      <indent-1>
-        <html-attribute>[labelPosition]</html-attribute><prb-string>="'{{ selectedLabelPosition() }}'"</prb-string>
-      </indent-1>
-      <indent-1>
-        <html-attribute>[disabled]</html-attribute><prb-string>="{{ disabled() }}"</prb-string>
-      </indent-1>
-      <div>
-        <html-tag>/&gt;</html-tag>
-      </div>
-      <p>
-        The "Label" can be displayed on the right or the left side of the control.
-      </p>
-      <p>
-        <radio-group
-          [options]="labelPosition"
-          name="size"
-          [orientation]="'horizontal'"
-          [(value)]="selectedLabelPosition" />
-      </p>
-      <p>
-        The control can be disabled.
-      </p>
-      <p>
-        <slide-switch
-          [(checked)]="disabled"
-          [label]="'Disabled'" />
-      </p>
     </card-body>
   </card-container>
   <h4 class="center">Demo Slide Switch</h4>
