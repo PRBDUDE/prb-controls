@@ -74,3 +74,13 @@ span.text-result {
 summary {
   margin-bottom: 1em;
 }
+
+.prompt-line {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}

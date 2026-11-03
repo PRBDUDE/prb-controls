@@ -29,15 +29,15 @@
         <html-tag>&gt;</html-tag>
       </div>
 
-      <p>
+      <div class="prompt-line">
         Button size
-      </p>
-      <radio-group
-        [options]="sizeOptions"
-        [name]="'sizeControlTertiary'"
-        [orientation]="'horizontal'"
-        [(ngModel)]="size"
-      />
+        <radio-group
+          [options]="sizeOptions"
+          [name]="'sizeControlTertiary'"
+          [orientation]="'horizontal'"
+          [(ngModel)]="size"
+        />
+      </div>
       <p>
         <slide-switch
           [(ngModel)]="pill"
@@ -54,6 +54,7 @@
   </card-container>
   <div>
     <button-tertiary [size]="size()" [pill]="pill()" [disabled]="disabled()"
-                     (click)="onTertiaryClick($event)">{{ size() | titlecase }}</button-tertiary>
+                     (click)="onTertiaryClick($event)">{{ size() | titlecase }}
+    </button-tertiary>
   </div>
 </jelly-container>
