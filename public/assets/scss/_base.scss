@@ -79,10 +79,13 @@ summary {
   display: flex;
   flex-direction: row;
   gap: 0.5em;
-  margin-block-start: 1em;
   margin-block-end: 1em;
   margin-inline-start: 0;
   margin-inline-end: 0;
+
+  &:not(:first-child) {
+    margin-block-start: 1em;
+  }
 }
 
 .split-block {
@@ -90,4 +93,18 @@ summary {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 2em;
+
+  >div {
+    width: 45%;
+  }
+
+  p:first-child {
+    margin-block-start: 0;
+    margin-inline-start: 0;
+  }
+
+  p:last-child {
+    margin-block-end: 0;
+    margin-inline-end: 0;
+  }
 }
