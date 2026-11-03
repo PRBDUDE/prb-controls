@@ -5,51 +5,58 @@
       <p>
         This demonstrates the {{ size() | titlecase }} Secondary button.
       </p>
-      <div>
-        <html-tag>&lt;</html-tag>
-        <user-tag>button-secondary</user-tag>
-      </div>
-      <indent-1>
-        <html-attribute>[size]</html-attribute><prb-string>="{{ size() }}"</prb-string>
-      </indent-1>
-      <indent-1>
-        <html-attribute>[pill]</html-attribute><prb-string>="{{ pill() }}"</prb-string>
-      </indent-1>
-      <indent-1>
-        <html-attribute>[disabled]</html-attribute><prb-string>="{{ disabled() }}"</prb-string>
-      </indent-1>
-      <indent-1>
-        <html-attribute>(click)</html-attribute><prb-string>="</prb-string><method-name>onSecondaryClick</method-name>()
-        <prb-string>"</prb-string>
-      </indent-1>
-      <indent-1>
-      </indent-1>
-      <div><html-tag>&gt;</html-tag>{{ size() | titlecase }}<html-tag>&lt;/</html-tag>
-        <user-tag>button-secondary</user-tag>
-        <html-tag>&gt;</html-tag>
-      </div>
+      <div class="split-block">
+        <div>
+          <div>
+            <html-tag>&lt;</html-tag>
+            <user-tag>button-secondary</user-tag>
+          </div>
+          <indent-1>
+            <html-attribute>[size]</html-attribute><prb-string>="{{ size() }}"</prb-string>
+          </indent-1>
+          <indent-1>
+            <html-attribute>[pill]</html-attribute><prb-string>="{{ pill() }}"</prb-string>
+          </indent-1>
+          <indent-1>
+            <html-attribute>[disabled]</html-attribute><prb-string>="{{ disabled() }}"</prb-string>
+          </indent-1>
+          <indent-1>
+            <html-attribute>(click)</html-attribute><prb-string>="</prb-string><method-name>
+            onSecondaryClick</method-name>()
+            <prb-string>"</prb-string>
+          </indent-1>
+          <indent-1>
+          </indent-1>
+          <div><html-tag>&gt;</html-tag>{{ size() | titlecase }}<html-tag>&lt;/</html-tag>
+            <user-tag>button-secondary</user-tag>
+            <html-tag>&gt;</html-tag>
+          </div>
+        </div>
 
-      <div class="prompt-line">
-        Button size
-        <radio-group
-          [options]="sizeOptions"
-          [name]="'sizeControlSecondary'"
-          [orientation]="'horizontal'"
-          [(ngModel)]="size"
-        />
+        <div>
+          <div class="prompt-line">
+            Button size
+            <radio-group
+              [options]="sizeOptions"
+              [name]="'sizeControlSecondary'"
+              [orientation]="'horizontal'"
+              [(ngModel)]="size"
+            />
+          </div>
+          <p>
+            <slide-switch
+              [(ngModel)]="pill"
+              [label]="'Pill'"
+            />
+          </p>
+          <p>
+            <slide-switch
+              [(ngModel)]="disabled"
+              [label]="'Disabled'"
+            />
+          </p>
+        </div>
       </div>
-      <p>
-        <slide-switch
-          [(ngModel)]="pill"
-          [label]="'Pill'"
-        />
-      </p>
-      <p>
-        <slide-switch
-          [(ngModel)]="disabled"
-          [label]="'Disabled'"
-        />
-      </p>
     </card-body>
   </card-container>
   <div>

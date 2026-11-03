@@ -84,3 +84,10 @@ summary {
   margin-inline-start: 0;
   margin-inline-end: 0;
 }
+
+.split-block {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2em;
+}
