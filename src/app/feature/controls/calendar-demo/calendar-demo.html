@@ -32,8 +32,7 @@
             </indent-1>
             <indent-1>
               <html-attribute>[(selectedDate)]</html-attribute>
-              <prb-string>="<prb-signal>singleDate</prb-signal>"
-              </prb-string>
+              <prb-string>="{{ singleDate() | date }}"</prb-string>
             </indent-1>
           }
           @if (calendarMode() === 'range') {
@@ -42,10 +41,8 @@
             </indent-1>
             <indent-1>
               <html-attribute>[(selectedRange)]</html-attribute>
-              <prb-string>="
-                <prb-signal>dateRange</prb-signal>
-                "
-              </prb-string>
+              <prb-string>="{{ dateRange().startDate | date }}",
+                "{{ dateRange().endDate | date }}"</prb-string>
             </indent-1>
           }
           <div><html-tag>/&gt;</html-tag></div>
@@ -60,6 +57,12 @@
               [(ngModel)]="calendarMode"
             />
           </div>
+          <button-secondary
+            [size]="'small'"
+            [pill]="true"
+            [disabled]="isDisabled()"
+            (click)="clearDate()"
+          >Clear</button-secondary>
         </div>
       </div>
     </card-body>

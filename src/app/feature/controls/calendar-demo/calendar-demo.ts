@@ -9,6 +9,7 @@ import { RadioGroup, RadioOption } from '@control/radio-group/radio-group';
 import { FormsModule } from '@angular/forms';
 import { CodeColoring } from '@core/code-coloring';
 import { Indent } from '@core/indent';
+import { Button } from '@control/button/button';
 
 @Component({
   imports: [
@@ -22,6 +23,7 @@ import { Indent } from '@core/indent';
     FormsModule,
     CodeColoring,
     Indent,
+    Button,
   ],
   selector: 'prb-calendar-demo',
   styleUrl: './calendar-demo.scss',
@@ -36,4 +38,23 @@ export class CalendarDemo {
     { label: 'Single', value: 'single' },
     { label: 'Range', value: 'range' },
   ];
+
+  protected clearDate() {
+    if (this.calendarMode() === 'single') {
+      this.singleDate.set(null);
+    }
+    if (this.calendarMode() === 'range') {
+      this.dateRange.set({ startDate: null, endDate: null });
+    }
+  }
+
+  protected isDisabled() {
+    if (this.calendarMode() === 'single') {
+      return this.singleDate() === null;
+    }
+    if (this.calendarMode() === 'range') {
+      return this.dateRange().startDate === null;
+    }
+    return false;
+  }
 }

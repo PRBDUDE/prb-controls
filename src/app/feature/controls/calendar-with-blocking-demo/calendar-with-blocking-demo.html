@@ -78,6 +78,12 @@
               [orientation]="'horizontal'"
               [(ngModel)]="calendarMode" />
           </div>
+          <button-secondary
+            [size]="'small'"
+            [pill]="true"
+            [disabled]="isDisabled()"
+            (click)="clearDate()"
+          >Clear</button-secondary>
         </div>
       </div>
     </card-body>

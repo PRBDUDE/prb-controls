@@ -51,6 +51,7 @@
           <p>
             <slide-switch [(ngModel)]="isShowActivity" [label]="'Display Activity'" />
           </p>
+          <p>Sample input values:</p>
           <div class="prompt-line">
             Count
             <radio-group
@@ -58,7 +59,6 @@
               [name]="'countMode'"
               [orientation]="'horizontal'"
               [(ngModel)]="count" />
-            (Sample counts)
           </div>
           <div class="prompt-line">
             Speed
@@ -67,7 +67,6 @@
               [name]="'speedMode'"
               [orientation]="'horizontal'"
               [(ngModel)]="speed" />
-            (Sample speeds)
           </div>
           <div class="prompt-line">
             Size
@@ -76,7 +75,6 @@
               [name]="'sizeMode'"
               [orientation]="'horizontal'"
               [(ngModel)]="size" />
-            (Sample sizes)
           </div>
           <div class="prompt-line">
             Color
@@ -85,7 +83,6 @@
               [name]="'colorMode'"
               [orientation]="'horizontal'"
               [(ngModel)]="color" />
-            (Sample colors)
           </div>
         </div>
       </div>
