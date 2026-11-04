@@ -78,15 +78,15 @@
       </div>
     </card-body>
   </card-container>
-  <p>
-    maxStars is set to {{ selectedStarCount() }}
-  </p>
   @if (selectedStarCount() === -1) {
     <prb-star-rating
       [(rating)]=selectedRating
       [disabled]="disabled()" />
 
   } @else {
+    <p>
+      maxStars is set to {{ selectedStarCount() }}
+    </p>
     <prb-star-rating
       [(rating)]=selectedRating
       [disabled]="disabled()"
