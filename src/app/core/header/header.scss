@@ -56,11 +56,26 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1035px) {
   .header {
     &-text {
       font-size: 26pt;
       padding-top: 0.5em;
+    }
+
+    &-logo {
+      div {
+        font-size: 9pt;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .header {
+    &-text {
+      font-size: 20pt;
+      padding-top: 1em;
     }
   }
 }
