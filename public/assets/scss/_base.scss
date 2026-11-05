@@ -63,8 +63,10 @@ div.center {
 }
 
 span.text-result {
+  display: inline-block;
+  vertical-align: middle;
   min-width: 30px;
-  min-height: 1.2em;
+  height: 1.2em;
   padding: 2px 5px;
   background-color: black;
   color: white;
