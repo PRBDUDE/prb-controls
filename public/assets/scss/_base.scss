@@ -53,14 +53,25 @@ hr {
   margin-bottom: 20px;
 }
 
-div.center {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0.4rem;
-  margin: 1rem;
+div {
+  .center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 1rem;
+  }
+
+  .center-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem;
+  }
 }
+
 
 span.text-result {
   display: inline-block;
