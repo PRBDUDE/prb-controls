@@ -1,5 +1,5 @@
 import { Component, forwardRef, input, model } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 export interface RadioOption<T = any> {
   label?: string;
@@ -51,6 +51,7 @@ export interface RadioOption<T = any> {
 
       .radio-group.horizontal {
         flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
       }
 
@@ -93,7 +94,7 @@ export interface RadioOption<T = any> {
     },
   ],
 })
-export class RadioGroup {
+export class RadioGroup implements ControlValueAccessor {
   options = input.required<RadioOption[]>();
   name = input.required<string>();
   orientation = input<'horizontal' | 'vertical'>('vertical');
