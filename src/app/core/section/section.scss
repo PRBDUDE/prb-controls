@@ -2,8 +2,22 @@
   display: block;
   margin: 0 auto 5em auto;
   min-height: calc(var(--content-height) - 2em);
+  width: max(700px, 45vw);
 }
 
 .content-section-description {
   background-color: var(--color-content-section-background);
+}
+
+@media screen and (max-width: 1324px) {
+  :host {
+    margin: 0 auto 5em 10%;
+    width: 600px;
+  }
+}
+
+@media screen and (max-width: 1124px) {
+  :host {
+    width: 450px;
+  }
 }
