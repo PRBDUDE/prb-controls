@@ -8,6 +8,7 @@ import { RadioGroupDemo } from './radio-group-demo/radio-group-demo';
 import { CalendarDemo } from './calendar-demo/calendar-demo';
 import { LightChaserDemo } from './light-chaser-demo/light-chaser-demo';
 import { CalendarWithBlockingDemo } from './calendar-with-blocking-demo/calendar-with-blocking-demo';
+import { ThreeDBallDemo } from './three-d-ball-demo/three-d-ball-demo';
 
 @Component({
   imports: [
@@ -20,6 +21,7 @@ import { CalendarWithBlockingDemo } from './calendar-with-blocking-demo/calendar
     CalendarDemo,
     LightChaserDemo,
     CalendarWithBlockingDemo,
+    ThreeDBallDemo,
   ],
   selector: 'prb-controls',
   styleUrl: './controls.scss',

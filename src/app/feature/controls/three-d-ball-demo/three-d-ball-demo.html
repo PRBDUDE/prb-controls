@@ -1,0 +1,42 @@
+<jelly-container>
+  <card-container>
+    <card-header>3D Ball</card-header>
+    <card-body>
+      <div class="split-block">
+        <div>
+          <html-tag>&lt;</html-tag>
+          <user-tag>three-d-ball</user-tag>
+          <indent-1>
+            <html-attribute>[baseColor]</html-attribute><prb-string>="'{{ ballColor }}'"</prb-string>
+          </indent-1>
+          <indent-1>
+            <html-attribute>[size]</html-attribute><prb-string>="'{{ selectedSize }}'"</prb-string>
+          </indent-1>
+          <div>
+            <html-tag>/&gt;</html-tag>
+          </div>
+        </div>
+        <div>
+          <div class="prompt-line">
+            Size
+            <radio-group
+              [options]="sizeOptions"
+              [name]="'sizeOption'"
+              [orientation]="'horizontal'"
+              [(ngModel)]="selectedSize" />
+          </div>
+
+          <div class="prompt-line">
+            Color
+            <radio-group
+              [options]="colorOptions"
+              [name]="'colorOption'"
+              [orientation]="'horizontal'"
+              [(ngModel)]="ballColor" />
+          </div>
+        </div>
+      </div>
+    </card-body>
+  </card-container>
+  <three-d-ball [baseColor]="ballColor" [size]="selectedSize" />
+</jelly-container>
