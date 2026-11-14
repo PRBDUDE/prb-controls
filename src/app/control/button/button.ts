@@ -7,6 +7,7 @@ export type buttonSize = 'large' | 'medium' | 'small';
   selector: 'button-primary, button-secondary, button-tertiary',
   template: `
     <button
+      [type]="type()"
       [class]="size()"
       [class.pill]="pill()"
       [disabled]="disabled()"
@@ -56,6 +57,11 @@ export type buttonSize = 'large' | 'medium' | 'small';
         color: #ffffff;
         box-shadow: var(--button-box-shadow);
 
+        &:active:not(:disabled) {
+          transform: translateY(3px) translateX(2px);
+          box-shadow: none;
+        }
+
         &:hover:not(:disabled) {
           background-color: var(--prb-color-primary-700);
         }
@@ -68,6 +74,11 @@ export type buttonSize = 'large' | 'medium' | 'small';
         border-color: #cccccc;
         box-shadow: var(--button-box-shadow);
 
+        &:active:not(:disabled) {
+          transform: translateY(3px) translateX(2px);
+          box-shadow: none;
+        }
+
         &:hover:not(:disabled) {
           background-color: #b0b0b0;
         }
@@ -78,7 +89,12 @@ export type buttonSize = 'large' | 'medium' | 'small';
         background-color: transparent;
         color: var(--prb-color-tertiary-600);
 
-        &:hover:not(:disabled) {
+        &:active:not(:disabled) {
+          transform: translateY(2px) translateX(2px);
+          color: var(--prb-color-tertiary-900);
+        }
+
+        &:hover:not(:active):not(:disabled) {
           background-color: var(--prb-color-primary-800);
           color: var(--prb-color-tertiary-500);
         }
@@ -92,6 +108,7 @@ export type buttonSize = 'large' | 'medium' | 'small';
   ],
 })
 export class Button {
+  type = input<'button' | 'submit' | 'reset'>('button');
   size = input<buttonSize>('large');
   pill = input<boolean>(false);
   disabled = input<boolean>(false);
