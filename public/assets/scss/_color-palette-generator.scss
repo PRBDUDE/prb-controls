@@ -191,15 +191,19 @@ $shade-lightness-map: (
   @each $name, $config in $inputs {
     $hue: map-get($config, "hue");
     // If saturation does not exist, then use default value of 70%
-    $saturation: if(sass(map-has-key($config, "saturation")): map-get($config, "saturation"); else: 70%);
+    $saturation: if(map-has-key($config, "saturation"), map-get($config, "saturation"), 70%);
     // If lightness does not exist, then use default value of 50%
-    $base-lightness: if(sass(map-has-key($config, "lightness")): map-get($config, "lightness"); else: 50%);
+    $base-lightness: if(map-has-key($config, "lightness"), map-get($config, "lightness"), 50%);
 
     $shades-map: ();
 
     @each $shade, $target-lightness in $shade-lightness-map {
       // Scale lightness relative to custom base lightness if provided
-      $adjusted-lightness: if(sass($base-lightness != 50%): $target-lightness * ($base-lightness / 50%); else: $target-lightness);
+      $adjusted-lightness: if(
+        $base-lightness != 50%,
+        $target-lightness * ($base-lightness / 50%),
+        $target-lightness
+      );
 
       $color: hsl($hue, $saturation, $adjusted-lightness);
       // Add shade map to $shades-map
